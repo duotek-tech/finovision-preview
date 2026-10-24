@@ -20,17 +20,20 @@ a { color: inherit; text-decoration: none; }
 .concept-info h3 { margin: 0; font-size: 1.25rem; }
 .concept-info p { margin: 10px 0 0; color: var(--muted); font-size: .86rem; }
 .open-pill { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; flex: 0 0 auto; font-size: 1.1rem; }
-.premium-preview { color: white; background: linear-gradient(180deg, rgba(5,16,31,.15), #07162b), url('../assets/hero-premium.webp') 66% center/cover; }
-.premium-preview h2 { font-family: Georgia, serif; font-weight: 500; }
-.premium-card .open-pill { background: #cba35b; color: #0b192d; }
+.premium-preview { color: #102842; background-color: #edf3ff; background-image: linear-gradient(rgba(16,40,66,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(16,40,66,.06) 1px, transparent 1px), radial-gradient(circle at 85% 22%, rgba(127,168,248,.45), transparent 30%), radial-gradient(circle at 10% 90%, rgba(255,115,95,.35), transparent 27%); background-size: 38px 38px, 38px 38px, auto, auto; }
+.premium-preview::after { content: "FINANCE + SYSTEMS"; position: absolute; right: -34px; top: 128px; width: 190px; padding: 20px 14px; background: #102842; color: white; border: 8px solid white; box-shadow: 8px 8px 0 #ff735f; font-size: .7rem; font-weight: 900; letter-spacing: .12em; transform: rotate(4deg); }
+.premium-preview > * { position: relative; z-index: 1; }
+.premium-preview h2 { font-weight: 700; }
+.premium-card .open-pill { background: #ff735f; color: white; }
 .minimal-preview { color: white; background: #080808; }
 .minimal-preview::before { content: ""; position: absolute; width: 280px; height: 280px; right: -70px; top: 110px; background: radial-gradient(circle at 32% 30%, #aaa, #191919 48%, #080808 70%); border-radius: 41% 59% 61% 39% / 52% 42% 58% 48%; }
 .minimal-preview > * { position: relative; z-index: 1; }
 .minimal-preview h2 span { color: #d9ff43; }
 .minimal-card .open-pill { background: #d9ff43; color: #080808; }
-.advisory-preview { color: #103b31; background: linear-gradient(180deg, rgba(238,248,242,.08), #eaf7f0), url('../assets/hero-advisory.webp') 62% center/cover; }
-.advisory-preview::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(234,247,240,.12), #eaf7f0 82%); }
-.advisory-preview > * { position: relative; z-index: 1; }
+.advisory-preview { color: #073c34; background: #f5f1e8; }
+.advisory-preview::before { content: ""; position: absolute; width: 210px; height: 210px; right: -38px; top: 98px; border: 1px solid rgba(7,60,52,.25); border-radius: 50%; box-shadow: inset 0 0 0 54px #fffdf7, inset 0 0 0 55px rgba(7,60,52,.18), 9px 11px 0 #073c34; }
+.advisory-preview::after { content: "FINANCE IN FOCUS"; position: absolute; right: 22px; top: 174px; width: 102px; color: white; font-size: .57rem; font-weight: 900; letter-spacing: .1em; text-align: center; }
+.advisory-preview > * { position: relative; z-index: 2; }
 .advisory-preview h2 span { color: #078463; }
 .advisory-card .open-pill { background: #0c503f; color: white; }
 .note { margin: 35px 0 0; color: var(--muted); font-size: .8rem; }

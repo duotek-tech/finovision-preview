@@ -738,3 +738,200 @@ body.finoza {
   .finoza .form-row { grid-template-columns: 1fr; gap: 10px; }
   .finoza .form-row .button-finoza { width: 100%; }
 }
+
+/* CONCEPT C DIFFERENTIATION PASS: ADVISORY COMPASS + PRACTICE INDEX */
+.finoza .finoza-hero {
+  min-height: 850px;
+  padding-top: 112px;
+  background-color: #f5f1e8;
+  background-image:
+    linear-gradient(90deg, transparent 49.9%, rgba(7,60,52,.08) 50%, transparent 50.1%),
+    radial-gradient(circle at 86% 20%, rgba(210,239,104,.32), transparent 24%);
+}
+.finoza .finoza-hero::before {
+  content: "";
+  position: absolute;
+  inset: 112px auto 46px 0;
+  width: 12px;
+  background: var(--finoza-green);
+}
+.finoza .hero-layout {
+  grid-template-columns: minmax(0, 1.05fr) minmax(470px, .95fr);
+  gap: clamp(54px, 7vw, 100px);
+}
+.finoza .welcome-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  color: var(--finoza-forest);
+  font-size: .72rem;
+  letter-spacing: .14em;
+}
+.finoza .welcome-pill::before { content: ""; width: 38px; height: 2px; background: var(--finoza-green); }
+.finoza .hero-left h1 {
+  max-width: 720px;
+  margin-bottom: 28px;
+  font-size: clamp(4rem, 7vw, 7.4rem);
+  line-height: .89;
+  letter-spacing: -.075em;
+  font-weight: 720;
+}
+.finoza .hero-left h1 span { color: var(--finoza-green); }
+.finoza .hero-desc { max-width: 590px; font-size: 1.1rem; }
+.finoza .hero-btn-row { flex-wrap: wrap; }
+.finoza .hero-text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 50px;
+  padding: 0 4px;
+  border-bottom: 1px solid var(--finoza-forest);
+  color: var(--finoza-forest);
+  font-size: .86rem;
+  font-weight: 800;
+}
+.finoza .hero-location { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 48px; }
+.finoza .hero-location span { position: relative; padding-left: 14px; color: var(--finoza-muted); font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.finoza .hero-location span::before { content: ""; position: absolute; left: 0; top: .55em; width: 5px; height: 5px; border-radius: 50%; background: var(--finoza-green); }
+
+.finoza .advisory-compass {
+  position: relative;
+  width: min(100%, 520px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  border: 1px solid rgba(7,60,52,.2);
+  border-radius: 50%;
+  background: #fffdf7;
+  box-shadow: 22px 24px 0 var(--finoza-forest), 0 32px 80px rgba(7,60,52,.13);
+}
+.finoza .advisory-compass::before,
+.finoza .advisory-compass::after { content: ""; position: absolute; background: rgba(7,60,52,.14); }
+.finoza .advisory-compass::before { left: 50%; top: 6%; bottom: 6%; width: 1px; }
+.finoza .advisory-compass::after { top: 50%; left: 6%; right: 6%; height: 1px; }
+.finoza .compass-label {
+  position: absolute;
+  z-index: 5;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 7px 13px;
+  border: 1px solid var(--finoza-border);
+  border-radius: 99px;
+  background: #fff;
+  color: var(--finoza-muted);
+  font-size: .62rem;
+  font-weight: 850;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.finoza .compass-orbit { position: absolute; z-index: 1; left: 50%; top: 50%; transform: translate(-50%, -50%); border: 1px dashed rgba(7,60,52,.25); border-radius: 50%; }
+.finoza .orbit-one { width: 72%; height: 72%; }
+.finoza .orbit-two { width: 46%; height: 46%; border-style: solid; }
+.finoza .compass-core {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  width: 155px;
+  height: 155px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  background: var(--finoza-forest);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 18px 36px rgba(7,60,52,.25);
+}
+.finoza .compass-core small { color: #a6d8c1; font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.finoza .compass-core strong { margin-top: 5px; font-size: 1.42rem; line-height: 1; letter-spacing: -.04em; }
+.finoza .compass-node {
+  position: absolute;
+  z-index: 4;
+  width: 126px;
+  padding: 13px 14px;
+  border: 1px solid var(--finoza-border);
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(7,60,52,.1);
+}
+.finoza .compass-node span { display: block; color: var(--finoza-green); font-size: .58rem; font-weight: 900; }
+.finoza .compass-node strong, .finoza .compass-node small { display: block; }
+.finoza .compass-node strong { margin-top: 3px; color: var(--finoza-forest); font-size: .8rem; }
+.finoza .compass-node small { color: var(--finoza-muted); font-size: .65rem; }
+.finoza .node-accounting { left: -12px; top: 110px; }
+.finoza .node-controls { right: -12px; top: 110px; }
+.finoza .node-vat { left: -12px; bottom: 80px; }
+.finoza .node-systems { right: -12px; bottom: 80px; }
+.finoza .compass-credential {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  color: var(--finoza-forest);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  white-space: nowrap;
+}
+
+/* A service index replaces the familiar centered card deck. */
+.finoza .finoza-services { background: #f7faf7; }
+.finoza .services-head { max-width: none; margin-bottom: 50px; text-align: left; display: grid; grid-template-columns: 1fr .7fr; gap: 50px; align-items: end; }
+.finoza .services-head .finoza-tag { grid-column: 1 / -1; margin-bottom: -32px; }
+.finoza .services-head p { margin: 0; max-width: 430px; color: var(--finoza-muted); font-size: 1.03rem; }
+.finoza .finoza-cards-deck { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid #bfcfc8; }
+.finoza .service-box {
+  display: grid;
+  grid-template-columns: 54px 66px minmax(210px, .65fr) 1fr 44px;
+  gap: 22px;
+  align-items: center;
+  padding: 26px 10px;
+  border: 0;
+  border-bottom: 1px solid #bfcfc8;
+  border-radius: 0;
+  background: transparent;
+  text-align: left;
+  transition: padding .2s ease, background .2s ease;
+}
+.finoza .service-box:hover { padding-inline: 24px; transform: none; background: #fff; box-shadow: none; }
+.finoza .service-index { color: var(--finoza-green); font-size: .7rem; font-weight: 900; letter-spacing: .12em; }
+.finoza .icon-circle { width: 52px; height: 52px; margin: 0; border-radius: 4px; box-shadow: none; background: #dff4e8; }
+.finoza .service-box h3 { margin: 0; font-size: 1.18rem; }
+.finoza .service-box p { margin: 0; max-width: 520px; }
+.finoza .arrow-circle-btn { margin: 0; border-radius: 4px; }
+
+@media (max-width: 1024px) {
+  .finoza .hero-layout { grid-template-columns: 1fr; gap: 72px; padding-bottom: 86px; }
+  .finoza .advisory-compass { width: min(86vw, 520px); }
+  .finoza .services-head { grid-template-columns: 1fr; gap: 20px; }
+  .finoza .services-head .finoza-tag { grid-column: auto; margin-bottom: -5px; }
+  .finoza .service-box { grid-template-columns: 48px 58px minmax(190px, .65fr) 1fr 40px; gap: 16px; }
+}
+
+@media (max-width: 700px) {
+  .finoza .finoza-hero { padding-top: 118px; }
+  .finoza .hero-left h1 { font-size: clamp(3.35rem, 16vw, 5rem); }
+  .finoza .advisory-compass { width: min(82vw, 390px); box-shadow: 12px 14px 0 var(--finoza-forest); }
+  .finoza .compass-core { width: 118px; height: 118px; }
+  .finoza .compass-core strong { font-size: 1.1rem; }
+  .finoza .compass-node { width: 100px; padding: 9px; }
+  .finoza .node-accounting, .finoza .node-controls { top: 76px; }
+  .finoza .node-vat, .finoza .node-systems { bottom: 58px; }
+  .finoza .service-box { grid-template-columns: 42px 1fr 38px; gap: 13px; }
+  .finoza .service-box .icon-circle { display: none; }
+  .finoza .service-box h3 { font-size: 1.08rem; }
+  .finoza .service-box p { grid-column: 2 / -1; }
+  .finoza .service-box .arrow-circle-btn { grid-column: 3; grid-row: 1; }
+}
+
+@media (max-width: 430px) {
+  .finoza .compass-label { top: 14px; }
+  .finoza .compass-credential { bottom: 10px; }
+  .finoza .compass-node { width: 88px; }
+  .finoza .compass-node strong { font-size: .68rem; }
+  .finoza .compass-node small { font-size: .58rem; }
+  .finoza .node-accounting, .finoza .node-vat { left: -7px; }
+  .finoza .node-controls, .finoza .node-systems { right: -7px; }
+}
