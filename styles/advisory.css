@@ -117,7 +117,7 @@ body.finoza {
 /* HERO: FINOZA GREEN ARCH STAGE */
 .finoza .finoza-hero {
   min-height: auto;
-  background: var(--finoza-mint);
+  background: var(--finoza-cream);
   display: flex;
   align-items: center;
   position: relative;
@@ -962,10 +962,11 @@ body.finoza {
   min-height: auto;
   padding-top: clamp(120px, 12vw, 150px);
   padding-bottom: clamp(60px, 8vw, 96px);
-  background-color: #f7f4ed;
+  background-color: var(--finoza-cream);
   background-image:
-    radial-gradient(circle at 86% 22%, rgba(210,239,104,.28), transparent 32%),
-    radial-gradient(circle at 14% 78%, rgba(0,176,116,.07), transparent 36%);
+    radial-gradient(circle at 86% 22%, rgba(210,239,104,.22), transparent 36%),
+    radial-gradient(circle at 14% 65%, rgba(0,176,116,.06), transparent 42%),
+    linear-gradient(180deg, transparent 70%, var(--finoza-cream) 100%);
 }
 .finoza .hero-layout {
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
