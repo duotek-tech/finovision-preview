@@ -3,20 +3,107 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Finovision Business Solutions LLC — Integrated accounting, statutory audit, UAE VAT compliance and business software systems based in Sharjah, UAE.">
+  <meta name="theme-color" content="#0d3826">
+  <meta name="format-detection" content="telephone=no">
+
   <title>Finovision Business Solutions LLC — Accounting, Audit &amp; Systems Advisory</title>
+  <meta name="description" content="Finovision Business Solutions LLC provides professional accounting, statutory audit, UAE VAT compliance, and cloud ERP systems architecture based in Sharjah Media City, UAE.">
+  <meta name="keywords" content="Accounting UAE, Audit Sharjah, UAE VAT consultancy, ERP implementation Dubai, Bookkeeping UAE, Tax consultancy Sharjah, Finovision">
+  <meta name="author" content="Finovision Business Solutions LLC">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/finovision-mark.svg">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Finovision Business Solutions LLC">
+  <meta property="og:title" content="Finovision — Integrated Accounting, Audit &amp; Business Systems">
+  <meta property="og:description" content="Accounting discipline, statutory audit review, UAE VAT guidance, and cloud ERP software configured directly around your operations.">
+  <meta property="og:locale" content="en_AE">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Finovision Business Solutions LLC — Accounting &amp; Systems Advisory">
+  <meta name="twitter:description" content="Clean financial records, internal controls, and business software architecture across the UAE, Oman, and India.">
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/advisory.css">
+
+  <!-- Structured Data: Local Business / Accounting Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "Finovision Business Solutions LLC",
+    "description": "Professional corporate accounting, statutory audit, UAE VAT compliance, and business software systems advisory.",
+    "telephone": "+971503010675",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sharjah",
+      "addressRegion": "Sharjah Media City (Shams)",
+      "addressCountry": "AE"
+    },
+    "openingHours": "Su-Th 09:00-18:00",
+    "areaServed": ["United Arab Emirates", "Oman", "India"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Finovision Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Accounting & Bookkeeping"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Audit & Internal Controls"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "VAT & Tax Consultancy"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "ERP & Business Systems"
+          }
+        }
+      ]
+    }
+  }
+  </script>
 </head>
 <body class="finoza">
-  <!-- HEADER -->
-  <header class="site-header">
+  <!-- Skip to Main Content Link for Keyboard & Screen Reader Accessibility -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- SITE HEADER & NAVIGATION -->
+  <header class="site-header" role="banner">
     <nav class="nav container" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="Finovision home">
-        <svg class="brand-mark" viewBox="0 0 640 480" aria-hidden="true"><path fill="currentColor" d="M50 410 241 171l68 84-14 19-54-67-140 176h468l21 27H50Zm202-52L400 171l103 130-45 57h-29l45-57-74-94-119 151h-29Z"/></svg>
-        <span class="brand-text">FINOVISION<small>Business Solutions LLC</small></span>
+      <a class="brand" href="#top" aria-label="Finovision home page">
+        <svg class="brand-mark" viewBox="0 0 640 480" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M50 410 241 171l68 84-14 19-54-67-140 176h468l21 27H50Zm202-52L400 171l103 130-45 57h-29l45-57-74-94-119 151h-29Z"/>
+        </svg>
+        <span class="brand-text">
+          FINOVISION
+          <small>Business Solutions LLC</small>
+        </span>
       </a>
-      <button class="menu-toggle" aria-expanded="false" aria-label="Open navigation"><span></span></button>
+
+      <button class="menu-toggle" aria-expanded="false" aria-label="Open navigation menu">
+        <span></span>
+      </button>
+
       <div class="nav-links">
         <a href="#top">Home</a>
         <a href="#about">About</a>
@@ -24,16 +111,17 @@
         <a href="#knowledge">Knowledge</a>
         <a href="#faq">FAQ</a>
         <div class="header-contact-pill">
-          <span class="phone-num">050 301 0675</span>
+          <a class="phone-num" href="tel:+971503010675" aria-label="Call Finovision at 050 301 0675">050 301 0675</a>
           <a class="button-finoza" href="#contact">Contact Us <span>→</span></a>
         </div>
       </div>
     </nav>
   </header>
 
-  <main id="top">
-    <!-- HERO: ADVISORY COMPASS -->
-    <section class="finoza-hero">
+  <!-- MAIN CONTENT CONTAINER -->
+  <main id="main-content" role="main">
+    <!-- HERO SECTION: ADVISORY COMPASS -->
+    <section class="finoza-hero" aria-label="Introduction">
       <div class="container hero-layout">
         <div class="hero-left reveal">
           <div class="welcome-pill">Independent finance &amp; systems practice</div>
@@ -43,43 +131,77 @@
             <a class="button-finoza" href="#services">Explore the practice <span>→</span></a>
             <a class="hero-text-link" href="#contact">Talk to an adviser</a>
           </div>
-          <div class="hero-location"><span>Sharjah, UAE</span><span>UAE · Oman · India</span></div>
+          <div class="hero-location">
+            <span>Sharjah, UAE</span>
+            <span>UAE · Oman · India</span>
+          </div>
         </div>
 
         <div class="hero-right reveal">
-          <div class="advisory-compass" aria-label="Finovision integrated advisory model">
+          <div class="advisory-compass" aria-label="Finovision integrated advisory model visual diagram">
             <div class="compass-label">One connected practice</div>
-            <div class="compass-orbit orbit-one"></div>
-            <div class="compass-orbit orbit-two"></div>
-            <div class="compass-core"><small>Finovision</small><strong>Finance<br>in focus</strong></div>
-            <div class="compass-node node-accounting"><span>01</span><strong>Records</strong><small>Accounting</small></div>
-            <div class="compass-node node-controls"><span>02</span><strong>Confidence</strong><small>Controls</small></div>
-            <div class="compass-node node-vat"><span>03</span><strong>Compliance</strong><small>VAT</small></div>
-            <div class="compass-node node-systems"><span>04</span><strong>Flow</strong><small>Systems</small></div>
+            <div class="compass-orbit orbit-one" aria-hidden="true"></div>
+            <div class="compass-orbit orbit-two" aria-hidden="true"></div>
+            <div class="compass-core">
+              <small>Finovision</small>
+              <strong>Finance<br>in focus</strong>
+            </div>
+            <div class="compass-node node-accounting">
+              <span>01</span>
+              <strong>Records</strong>
+              <small>Accounting</small>
+            </div>
+            <div class="compass-node node-controls">
+              <span>02</span>
+              <strong>Confidence</strong>
+              <small>Controls</small>
+            </div>
+            <div class="compass-node node-vat">
+              <span>03</span>
+              <strong>Compliance</strong>
+              <small>VAT</small>
+            </div>
+            <div class="compass-node node-systems">
+              <span>04</span>
+              <strong>Flow</strong>
+              <small>Systems</small>
+            </div>
             <div class="compass-credential">CPA · MBA · GCC VAT</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 2: OUR PATH TO TRUST AND FINANCIAL SUCCESS -->
-    <section class="section finoza-about" id="about">
+    <!-- SECTION 2: OUR PATH TO TRUST & FINANCIAL SUCCESS -->
+    <section class="section finoza-about" id="about" aria-labelledby="about-heading">
       <div class="container">
         <div class="about-grid">
-          <!-- Left: Overlapping Photo Collage -->
+          <!-- Overlapping Photo Collage -->
           <div class="collage-wrap reveal">
             <div class="collage-top">
-              <img src="assets/finoza_review_img.jpg" alt="Financial charts and spreadsheets review with calculator">
+              <img 
+                src="assets/finoza_review_img.jpg" 
+                alt="Financial charts and spreadsheets review with calculator" 
+                loading="lazy" 
+                decoding="async" 
+                width="800" 
+                height="600">
             </div>
             <div class="collage-bottom">
-              <img src="assets/finoza_team_img.jpg" alt="Finovision advisory team reviewing financial records in boardroom">
+              <img 
+                src="assets/finoza_team_img.jpg" 
+                alt="Finovision advisory team reviewing financial records in boardroom" 
+                loading="lazy" 
+                decoding="async" 
+                width="800" 
+                height="600">
             </div>
           </div>
 
-          <!-- Right: Narrative -->
+          <!-- Narrative -->
           <div class="about-text reveal">
             <span class="finoza-tag">#Our Practice</span>
-            <h2>Practical Financial Advisory Built Around Your Operations</h2>
+            <h2 id="about-heading">Practical Financial Advisory Built Around Your Operations</h2>
             <p>At Finovision Business Solutions LLC, we believe enterprises thrive when their financial records are clean, transparent, and legally compliant. Rather than offering detached consultancy, we embed structured bookkeeping, robust internal controls, and proven business software directly into your daily routine.</p>
             <p class="secondary-p">Licensed in Sharjah Media City (Lic. #1804056), our multidisciplinary leadership brings over 18 years of regional GCC expertise across the UAE, Oman, and India. With credentials spanning CPA (Alaska, USA), MBA in Finance, and PwC/ATT GCC VAT accreditation, we provide executive-grade oversight with accessible, hands-on service.</p>
             <a class="button-finoza" href="#contact">Read More <span>→</span></a>
@@ -88,85 +210,96 @@
       </div>
     </section>
 
-    <!-- SECTION 3: NUMBERED PRACTICE INDEX -->
-    <section class="section finoza-services" id="services">
+    <!-- SECTION 3: PRACTICE DISCIPLINES (FOUR CORE PILLARS) -->
+    <section class="section finoza-services" id="services" aria-labelledby="services-heading">
       <div class="container">
         <div class="services-head reveal">
           <span class="finoza-tag">What We Do</span>
-          <h2>Four disciplines.<br>One clearer business.</h2>
+          <h2 id="services-heading">Four disciplines.<br>One clearer business.</h2>
           <p>Choose a focused engagement or bring the complete operating model together.</p>
         </div>
 
         <div class="finoza-cards-deck reveal">
-          <!-- CARD 1 -->
+          <!-- CARD 1: ACCOUNTING -->
           <article class="service-box">
-            <span class="service-index">01</span><div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span class="service-index">01</span>
+            <div class="icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
             </div>
             <h3>Accounting &amp; Bookkeeping</h3>
             <p>Account setup, routine double-entry bookkeeping, payroll administration and reliable period-end accounts finalisation.</p>
-            <a class="arrow-circle-btn" href="#contact" aria-label="Learn more about Accounting">→</a>
+            <a class="arrow-circle-btn" href="#contact" aria-label="Learn more about Accounting &amp; Bookkeeping">→</a>
           </article>
 
-          <!-- CARD 2 -->
+          <!-- CARD 2: AUDIT & INTERNAL CONTROLS -->
           <article class="service-box">
-            <span class="service-index">02</span><div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+            <span class="service-index">02</span>
+            <div class="icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>
+              </svg>
             </div>
             <h3>Audit &amp; Internal Controls</h3>
             <p>Practical reviews that evaluate internal controls, manage operational liability and provide decision-makers with clearer visibility.</p>
-            <a class="arrow-circle-btn" href="#contact" aria-label="Learn more about Audit">→</a>
+            <a class="arrow-circle-btn" href="#contact" aria-label="Learn more about Audit &amp; Internal Controls">→</a>
           </article>
 
-          <!-- CARD 3 -->
+          <!-- CARD 3: VAT & TAX CONSULTANCY -->
           <article class="service-box">
-            <span class="service-index">03</span><div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            <span class="service-index">03</span>
+            <div class="icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
             </div>
             <h3>VAT &amp; Tax Consultancy</h3>
             <p>Full guidance across supply classification, claimable and blocked input VAT, documentation hygiene and timely FTA return filings.</p>
-            <a class="arrow-circle-btn" href="#contact" aria-label="Learn more about VAT">→</a>
+            <a class="arrow-circle-btn" href="#contact" aria-label="Learn more about VAT &amp; Tax Consultancy">→</a>
           </article>
 
-          <!-- CARD 4 -->
+          <!-- CARD 4: ERP & BUSINESS SYSTEMS -->
           <article class="service-box">
-            <span class="service-index">04</span><div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+            <span class="service-index">04</span>
+            <div class="icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>
+              </svg>
             </div>
             <h3>ERP &amp; Business Systems</h3>
             <p>Business-needs appraisal and vetted implementation of suitable ERP, POS and accounting software aligned with your workflows.</p>
-            <a class="arrow-circle-btn" href="#contact" aria-label="Learn more about Systems">→</a>
+            <a class="arrow-circle-btn" href="#contact" aria-label="Learn more about ERP &amp; Business Systems">→</a>
           </article>
         </div>
       </div>
     </section>
 
     <!-- SECTION 4: UNIFYING FINANCE, COMPLIANCE & SYSTEMS -->
-    <section class="section finoza-knowledge" id="knowledge">
+    <section class="section finoza-knowledge" id="knowledge" aria-labelledby="knowledge-heading">
       <div class="container">
         <div class="knowledge-grid">
-          <!-- Left: Deep Forest Green Card -->
           <div class="knowledge-green-box reveal">
             <span class="mission-tag">Strategic Approach</span>
-            <h2>Unifying Accounting, Compliance &amp; Modern Systems</h2>
+            <h2 id="knowledge-heading">Unifying Accounting, Compliance &amp; Modern Systems</h2>
             <p>We bridge the gap between regulatory compliance requirements and daily operational software, ensuring business owners have actionable financial visibility at all times.</p>
             <div class="knowledge-check-list">
               <div class="k-item">
-                <span class="k-dot">●</span>
+                <span class="k-dot" aria-hidden="true">●</span>
                 <div>
                   <strong>Structured Back-Office Hygiene</strong>
                   <p>Daily and weekly ledger discipline to prevent record backlogs and eliminate year-end accounting surprises.</p>
                 </div>
               </div>
               <div class="k-item">
-                <span class="k-dot">●</span>
+                <span class="k-dot" aria-hidden="true">●</span>
                 <div>
                   <strong>Total Regulatory Adherence</strong>
                   <p>Proactive planning for UAE Corporate Tax, Federal Tax Authority VAT filings, and statutory audit readiness.</p>
                 </div>
               </div>
               <div class="k-item">
-                <span class="k-dot">●</span>
+                <span class="k-dot" aria-hidden="true">●</span>
                 <div>
                   <strong>Connected Technology Workflows</strong>
                   <p>Direct synchronization between your retail/hospitality POS, inventory management, and central accounting books.</p>
@@ -175,45 +308,62 @@
             </div>
           </div>
 
-          <!-- Right: Meeting Photo -->
           <div class="knowledge-photo reveal">
-            <img src="assets/finoza_team_img.jpg" alt="Finovision advisors conducting a strategic review meeting">
+            <img 
+              src="assets/finoza_team_img.jpg" 
+              alt="Finovision advisors conducting a strategic review meeting" 
+              loading="lazy" 
+              decoding="async" 
+              width="800" 
+              height="600">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 5: STATS STRIP -->
-    <section class="section finoza-stats">
+    <!-- SECTION 5: METRICS & TRACK RECORD -->
+    <section class="section finoza-stats" aria-label="Track record and credentials">
       <div class="container">
         <div class="stats-head reveal">
           <h2>Our Track Record &amp; Professional Credentials</h2>
         </div>
         <div class="stats-row reveal">
           <div class="stat-card">
-            <div class="stat-icon">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
             </div>
             <strong>18+</strong>
             <small>Years Regional Depth</small>
           </div>
+
           <div class="stat-card">
-            <div class="stat-icon">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 10v11M9 10v11M15 10v11M19 10v11M12 3l9 7H3z"/></svg>
+            <div class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 21h18M3 10h18M5 10v11M9 10v11M15 10v11M19 10v11M12 3l9 7H3z"/>
+              </svg>
             </div>
             <strong>Lic. 1804056</strong>
             <small>Sharjah Media City</small>
           </div>
+
           <div class="stat-card">
-            <div class="stat-icon">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <div class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
             </div>
             <strong>3 Markets</strong>
             <small>UAE, Oman &amp; India</small>
           </div>
+
           <div class="stat-card">
-            <div class="stat-icon">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
             </div>
             <strong>PwC / ATT</strong>
             <small>GCC VAT Accreditation</small>
@@ -223,15 +373,22 @@
     </section>
 
     <!-- SECTION 6: FREQUENTLY ASKED QUESTIONS -->
-    <section class="section finoza-faq" id="faq">
+    <section class="section finoza-faq" id="faq" aria-labelledby="faq-heading">
       <div class="container">
         <div class="faq-grid">
           <div class="faq-photo reveal">
-            <img src="assets/finoza_review_img.jpg" alt="Financial advisor reviewing spreadsheet documentation with client">
+            <img 
+              src="assets/finoza_review_img.jpg" 
+              alt="Financial advisor reviewing spreadsheet documentation with client" 
+              loading="lazy" 
+              decoding="async" 
+              width="800" 
+              height="600">
           </div>
+
           <div class="faq-content reveal">
             <span class="finoza-tag">Got Questions?</span>
-            <h2>Frequently Asked Questions</h2>
+            <h2 id="faq-heading">Frequently Asked Questions</h2>
             <div class="accordion">
               <details class="faq-item" open>
                 <summary>How do you tailor accounting support to our specific business?</summary>
@@ -255,21 +412,47 @@
       </div>
     </section>
 
-    <!-- SECTION 7: CALL TO ACTION & CONTACT -->
-    <section class="section finoza-cta" id="contact">
+    <!-- SECTION 7: CALL TO ACTION & CONSULTATION -->
+    <section class="section finoza-cta" id="contact" aria-labelledby="contact-heading">
       <div class="container">
         <div class="cta-banner reveal">
-          <h2>Ready to Bring Clear Financial Control<br>to Your Business?</h2>
+          <h2 id="contact-heading">Ready to Bring Clear Financial Control<br>to Your Business?</h2>
           <p>Consult with our certified advisors in Sharjah to evaluate your accounting, VAT compliance, or business software requirements.</p>
           <div class="cta-form-wrap">
-            <form class="finoza-form-clean contact-form">
+            <form class="finoza-form-clean contact-form" action="#" method="post" novalidate>
               <div class="form-row">
-                <input id="c-name" required placeholder="Your Name">
-                <input id="c-email" type="email" required placeholder="Your Email">
-                <input id="c-phone" placeholder="Phone Number">
-                <button class="button-finoza" type="submit">Get Started <span>→</span></button>
+                <label for="c-name" class="sr-only">Your Full Name</label>
+                <input 
+                  id="c-name" 
+                  name="fullName" 
+                  type="text" 
+                  required 
+                  autocomplete="name" 
+                  placeholder="Your Name">
+
+                <label for="c-email" class="sr-only">Corporate Email Address</label>
+                <input 
+                  id="c-email" 
+                  name="email" 
+                  type="email" 
+                  required 
+                  autocomplete="email" 
+                  placeholder="Your Email">
+
+                <label for="c-phone" class="sr-only">Contact Phone Number</label>
+                <input 
+                  id="c-phone" 
+                  name="phone" 
+                  type="tel" 
+                  autocomplete="tel" 
+                  placeholder="Phone Number">
+
+                <button class="button-finoza" type="submit">
+                  <span>Get Started</span>
+                  <span aria-hidden="true">→</span>
+                </button>
               </div>
-              <p class="form-status">Concept form — no information is submitted.</p>
+              <p class="form-status" role="status" aria-live="polite">All inquiries are reviewed directly by a qualified financial advisor.</p>
             </form>
           </div>
         </div>
@@ -277,19 +460,24 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="finoza-footer">
+  <!-- SITE FOOTER -->
+  <footer class="finoza-footer" role="contentinfo">
     <div class="container footer-content">
       <div class="footer-brand-col">
-        <a class="brand" href="#top">
-          <svg class="brand-mark" viewBox="0 0 640 480" aria-hidden="true"><path fill="currentColor" d="M50 410 241 171l68 84-14 19-54-67-140 176h468l21 27H50Zm202-52L400 171l103 130-45 57h-29l45-57-74-94-119 151h-29Z"/></svg>
-          <span class="brand-text">FINOVISION<small>Business Solutions LLC</small></span>
+        <a class="brand" href="#top" aria-label="Finovision home page">
+          <svg class="brand-mark" viewBox="0 0 640 480" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M50 410 241 171l68 84-14 19-54-67-140 176h468l21 27H50Zm202-52L400 171l103 130-45 57h-29l45-57-74-94-119 151h-29Z"/>
+          </svg>
+          <span class="brand-text">
+            FINOVISION
+            <small>Business Solutions LLC</small>
+          </span>
         </a>
-        <p>Sharjah Media City (Shams), Sharjah, United Arab Emirates<br>Commercial License #1804056 · 050 301 0675</p>
+        <p>Sharjah Media City (Shams), Sharjah, United Arab Emirates<br>Commercial License #1804056 · <a href="tel:+971503010675">050 301 0675</a></p>
       </div>
 
       <div class="footer-graphic">
-        <div class="three-bars-icon">
+        <div class="three-bars-icon" aria-hidden="true">
           <span style="height: 18px;"></span>
           <span style="height: 32px;"></span>
           <span style="height: 48px;"></span>
@@ -299,6 +487,7 @@
     </div>
   </footer>
 
+  <!-- Application Script -->
   <script src="app.js"></script>
 </body>
 </html>
