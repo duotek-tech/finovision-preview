@@ -116,7 +116,7 @@ body.finoza {
 
 /* HERO: FINOZA GREEN ARCH STAGE */
 .finoza .finoza-hero {
-  min-height: 820px;
+  min-height: auto;
   background: var(--finoza-mint);
   display: flex;
   align-items: center;
@@ -959,19 +959,13 @@ body.finoza {
 
 /* CONCEPT C DIFFERENTIATION PASS: ADVISORY COMPASS + PRACTICE INDEX */
 .finoza .finoza-hero {
-  min-height: 850px;
-  padding-top: 112px;
-  background-color: #f5f1e8;
+  min-height: auto;
+  padding-top: clamp(120px, 12vw, 150px);
+  padding-bottom: clamp(60px, 8vw, 96px);
+  background-color: #f7f4ed;
   background-image:
-    linear-gradient(90deg, transparent 49.9%, rgba(7,60,52,.08) 50%, transparent 50.1%),
-    radial-gradient(circle at 86% 20%, rgba(210,239,104,.32), transparent 24%);
-}
-.finoza .finoza-hero::before {
-  content: "";
-  position: absolute;
-  inset: 112px auto 46px 0;
-  width: 12px;
-  background: var(--finoza-green);
+    radial-gradient(circle at 86% 22%, rgba(210,239,104,.28), transparent 32%),
+    radial-gradient(circle at 14% 78%, rgba(0,176,116,.07), transparent 36%);
 }
 .finoza .hero-layout {
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
@@ -1018,10 +1012,14 @@ body.finoza {
   width: min(100%, 520px);
   aspect-ratio: 1;
   margin-inline: auto;
-  border: 1px solid rgba(7,60,52,.2);
+  border: 1px solid rgba(7,60,52,.16);
   border-radius: 50%;
-  background: #fffdf7;
-  box-shadow: 22px 24px 0 var(--finoza-forest), 0 32px 80px rgba(7,60,52,.13);
+  background: #ffffff;
+  box-shadow:
+    0 0 0 10px rgba(7,60,52,.025),
+    0 24px 60px rgba(7,60,52,.10),
+    0 6px 18px rgba(7,60,52,.05);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 .finoza .advisory-compass::before,
 .finoza .advisory-compass::after { content: ""; position: absolute; background: rgba(7,60,52,.14); }
@@ -1030,19 +1028,20 @@ body.finoza {
 .finoza .compass-label {
   position: absolute;
   z-index: 5;
-  top: 22px;
+  top: 18px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 7px 13px;
-  border: 1px solid var(--finoza-border);
+  padding: 7px 16px;
+  border: 1px solid rgba(7,60,52,.14);
   border-radius: 99px;
   background: #fff;
-  color: var(--finoza-muted);
+  color: var(--finoza-forest);
   font-size: .62rem;
   font-weight: 850;
-  letter-spacing: .11em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(7,60,52,.06);
 }
 .finoza .compass-orbit { position: absolute; z-index: 1; left: 50%; top: 50%; transform: translate(-50%, -50%); border: 1px dashed rgba(7,60,52,.25); border-radius: 50%; }
 .finoza .orbit-one { width: 72%; height: 72%; }
@@ -1068,31 +1067,43 @@ body.finoza {
 .finoza .compass-node {
   position: absolute;
   z-index: 4;
-  width: 126px;
-  padding: 13px 14px;
-  border: 1px solid var(--finoza-border);
+  width: 130px;
+  padding: 12px 14px;
+  border: 1px solid rgba(7,60,52,.12);
+  border-radius: 8px;
   background: #fff;
-  box-shadow: 0 12px 28px rgba(7,60,52,.1);
+  box-shadow: 0 10px 26px rgba(7,60,52,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-.finoza .compass-node span { display: block; color: var(--finoza-green); font-size: .58rem; font-weight: 900; }
+.finoza .compass-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(7,60,52,.12);
+}
+.finoza .compass-node span { display: block; color: var(--finoza-green); font-size: .6rem; font-weight: 900; letter-spacing: .08em; }
 .finoza .compass-node strong, .finoza .compass-node small { display: block; }
-.finoza .compass-node strong { margin-top: 3px; color: var(--finoza-forest); font-size: .8rem; }
-.finoza .compass-node small { color: var(--finoza-muted); font-size: .65rem; }
-.finoza .node-accounting { left: -12px; top: 110px; }
-.finoza .node-controls { right: -12px; top: 110px; }
-.finoza .node-vat { left: -12px; bottom: 80px; }
-.finoza .node-systems { right: -12px; bottom: 80px; }
+.finoza .compass-node strong { margin-top: 3px; color: var(--finoza-forest); font-size: .84rem; font-weight: 800; line-height: 1.2; }
+.finoza .compass-node small { margin-top: 2px; color: var(--finoza-muted); font-size: .68rem; line-height: 1.25; }
+.finoza .node-accounting { left: -10px; top: 110px; }
+.finoza .node-controls { right: -10px; top: 110px; }
+.finoza .node-vat { left: -10px; bottom: 80px; }
+.finoza .node-systems { right: -10px; bottom: 80px; }
 .finoza .compass-credential {
   position: absolute;
   z-index: 5;
   left: 50%;
   bottom: 18px;
   transform: translateX(-50%);
+  padding: 7px 16px;
+  border: 1px solid rgba(7,60,52,.14);
+  border-radius: 99px;
+  background: #fff;
   color: var(--finoza-forest);
   font-size: .62rem;
-  font-weight: 900;
+  font-weight: 850;
   letter-spacing: .12em;
+  text-transform: uppercase;
   white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(7,60,52,.06);
 }
 
 /* A service index replaces the familiar centered card deck. */
@@ -1133,7 +1144,12 @@ body.finoza {
   .finoza .finoza-hero { padding-top: 110px; }
   .finoza .hero-left h1 { font-size: clamp(2.4rem, 11vw, 4.2rem); line-height: 1.02; }
   .finoza .hero-desc { font-size: 1rem; }
-  .finoza .advisory-compass { width: min(82vw, 380px); box-shadow: 12px 14px 0 var(--finoza-forest); }
+  .finoza .advisory-compass {
+    width: min(82vw, 380px);
+    box-shadow: 0 0 0 6px rgba(7,60,52,.03), 0 16px 40px rgba(7,60,52,.09);
+  }
+  .finoza .compass-label { top: 14px; padding: 5px 12px; font-size: .56rem; }
+  .finoza .compass-credential { bottom: 14px; padding: 5px 12px; font-size: .56rem; }
   .finoza .compass-core { width: 116px; height: 116px; }
   .finoza .compass-core strong { font-size: 1.1rem; }
   .finoza .compass-node { width: 96px; padding: 8px 10px; }
@@ -1152,7 +1168,10 @@ body.finoza {
   .finoza .hero-btn-row .button-finoza,
   .finoza .hero-btn-row .hero-text-link { width: 100%; justify-content: center; text-align: center; }
   .finoza .hero-location { gap: 10px 18px; margin-top: 28px; }
-  .finoza .advisory-compass { width: min(82vw, 300px); box-shadow: 8px 10px 0 var(--finoza-forest); }
+  .finoza .advisory-compass {
+    width: min(82vw, 300px);
+    box-shadow: 0 0 0 4px rgba(7,60,52,.03), 0 12px 30px rgba(7,60,52,.08);
+  }
   .finoza .compass-core { width: 88px; height: 88px; }
   .finoza .compass-core strong { font-size: 0.92rem; }
   .finoza .compass-core small { font-size: 0.52rem; }
@@ -1164,12 +1183,15 @@ body.finoza {
   .finoza .node-controls, .finoza .node-systems { right: -4px; }
   .finoza .node-accounting, .finoza .node-controls { top: 52px; }
   .finoza .node-vat, .finoza .node-systems { bottom: 40px; }
-  .finoza .compass-label { top: 10px; font-size: 0.52rem; padding: 3px 7px; }
-  .finoza .compass-credential { bottom: 8px; font-size: 0.52rem; }
+  .finoza .compass-label { top: 10px; font-size: 0.52rem; padding: 3px 8px; }
+  .finoza .compass-credential { bottom: 8px; font-size: 0.52rem; padding: 3px 8px; }
 }
 
 @media (max-width: 360px) {
-  .finoza .advisory-compass { width: min(84vw, 256px); box-shadow: 6px 8px 0 var(--finoza-forest); }
+  .finoza .advisory-compass {
+    width: min(84vw, 256px);
+    box-shadow: 0 0 0 3px rgba(7,60,52,.03), 0 8px 20px rgba(7,60,52,.08);
+  }
   .finoza .compass-core { width: 76px; height: 76px; }
   .finoza .compass-core strong { font-size: 0.8rem; }
   .finoza .compass-node { width: 66px; padding: 4px 5px; }

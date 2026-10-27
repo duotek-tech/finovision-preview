@@ -86,7 +86,7 @@ font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
 ### Advisory Compass (`.advisory-compass`)
 - Centered circular financial intelligence graphic
 - Outer rotating orbit rings showing synchronized connectivity
-- Four peripheral node tags: Records (Accounting), Confidence (Controls), Compliance (VAT), Flow (Systems)
+- Four peripheral node tags: Records (Accounting), Confidence (Controls), Compliance (VAT & Corporate Tax), Flow (Systems)
 - Central core: "Finance in focus"
 
 ---
