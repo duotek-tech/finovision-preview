@@ -44,6 +44,28 @@ body.finoza {
   color: var(--finoza-forest);
 }
 
+@media (max-width: 900px) {
+  .finoza .header-contact-pill {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(7, 60, 52, 0.12);
+  }
+  .finoza .header-contact-pill .phone-num {
+    text-align: center;
+    font-size: 1.05rem;
+    padding: 6px 0;
+  }
+  .finoza .header-contact-pill .button-finoza {
+    justify-content: center;
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+  }
+}
+
 /* Finoza Green Pill Button */
 .finoza .button-finoza {
   background: var(--finoza-green);
@@ -739,6 +761,12 @@ body.finoza {
   .finoza .form-row .button-finoza { width: 100%; }
 }
 
+@media (max-width: 480px) {
+  .finoza .collage-wrap { height: 280px; width: 100%; max-width: 100%; }
+  .finoza .collage-top { width: 62%; height: 180px; }
+  .finoza .collage-bottom { width: 65%; height: 180px; }
+}
+
 /* CONCEPT C DIFFERENTIATION PASS: ADVISORY COMPASS + PRACTICE INDEX */
 .finoza .finoza-hero {
   min-height: 850px;
@@ -756,14 +784,14 @@ body.finoza {
   background: var(--finoza-green);
 }
 .finoza .hero-layout {
-  grid-template-columns: minmax(0, 1.05fr) minmax(470px, .95fr);
-  gap: clamp(54px, 7vw, 100px);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(36px, 5vw, 80px);
 }
 .finoza .welcome-pill {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   color: var(--finoza-forest);
   font-size: .72rem;
   letter-spacing: .14em;
@@ -771,11 +799,12 @@ body.finoza {
 .finoza .welcome-pill::before { content: ""; width: 38px; height: 2px; background: var(--finoza-green); }
 .finoza .hero-left h1 {
   max-width: 720px;
-  margin-bottom: 28px;
-  font-size: clamp(4rem, 7vw, 7.4rem);
-  line-height: .89;
-  letter-spacing: -.075em;
+  margin-bottom: 24px;
+  font-size: clamp(2.8rem, 6.5vw, 6.8rem);
+  line-height: .92;
+  letter-spacing: -.065em;
   font-weight: 720;
+  overflow-wrap: break-word;
 }
 .finoza .hero-left h1 span { color: var(--finoza-green); }
 .finoza .hero-desc { max-width: 590px; font-size: 1.1rem; }
@@ -903,37 +932,59 @@ body.finoza {
 .finoza .arrow-circle-btn { margin: 0; border-radius: 4px; }
 
 @media (max-width: 1024px) {
-  .finoza .hero-layout { grid-template-columns: 1fr; gap: 72px; padding-bottom: 86px; }
-  .finoza .advisory-compass { width: min(86vw, 520px); }
+  .finoza .hero-layout { grid-template-columns: 1fr; gap: 64px; padding-bottom: 70px; }
+  .finoza .advisory-compass { width: min(84vw, 480px); }
   .finoza .services-head { grid-template-columns: 1fr; gap: 20px; }
   .finoza .services-head .finoza-tag { grid-column: auto; margin-bottom: -5px; }
   .finoza .service-box { grid-template-columns: 48px 58px minmax(190px, .65fr) 1fr 40px; gap: 16px; }
 }
 
-@media (max-width: 700px) {
-  .finoza .finoza-hero { padding-top: 118px; }
-  .finoza .hero-left h1 { font-size: clamp(3.35rem, 16vw, 5rem); }
-  .finoza .advisory-compass { width: min(82vw, 390px); box-shadow: 12px 14px 0 var(--finoza-forest); }
-  .finoza .compass-core { width: 118px; height: 118px; }
+@media (max-width: 768px) {
+  .finoza .finoza-hero { padding-top: 110px; }
+  .finoza .hero-left h1 { font-size: clamp(2.4rem, 11vw, 4.2rem); line-height: 1.02; }
+  .finoza .hero-desc { font-size: 1rem; }
+  .finoza .advisory-compass { width: min(82vw, 380px); box-shadow: 12px 14px 0 var(--finoza-forest); }
+  .finoza .compass-core { width: 116px; height: 116px; }
   .finoza .compass-core strong { font-size: 1.1rem; }
-  .finoza .compass-node { width: 100px; padding: 9px; }
-  .finoza .node-accounting, .finoza .node-controls { top: 76px; }
-  .finoza .node-vat, .finoza .node-systems { bottom: 58px; }
-  .finoza .service-box { grid-template-columns: 42px 1fr 38px; gap: 13px; }
+  .finoza .compass-node { width: 96px; padding: 8px 10px; }
+  .finoza .node-accounting, .finoza .node-controls { top: 70px; }
+  .finoza .node-vat, .finoza .node-systems { bottom: 54px; }
+  .finoza .service-box { grid-template-columns: 36px 1fr 34px; gap: 12px; }
   .finoza .service-box .icon-circle { display: none; }
-  .finoza .service-box h3 { font-size: 1.08rem; }
-  .finoza .service-box p { grid-column: 2 / -1; }
+  .finoza .service-box h3 { font-size: 1.05rem; }
+  .finoza .service-box p { grid-column: 2 / -1; font-size: 0.88rem; }
   .finoza .service-box .arrow-circle-btn { grid-column: 3; grid-row: 1; }
 }
 
-@media (max-width: 430px) {
-  .finoza .compass-label { top: 14px; }
-  .finoza .compass-credential { bottom: 10px; }
-  .finoza .compass-node { width: 88px; }
-  .finoza .compass-node strong { font-size: .68rem; }
-  .finoza .compass-node small { font-size: .58rem; }
-  .finoza .node-accounting, .finoza .node-vat { left: -7px; }
-  .finoza .node-controls, .finoza .node-systems { right: -7px; }
+@media (max-width: 480px) {
+  .finoza .finoza-hero { padding-top: 100px; padding-bottom: 40px; }
+  .finoza .hero-btn-row { width: 100%; flex-direction: column; align-items: stretch; gap: 12px; }
+  .finoza .hero-btn-row .button-finoza,
+  .finoza .hero-btn-row .hero-text-link { width: 100%; justify-content: center; text-align: center; }
+  .finoza .hero-location { gap: 10px 18px; margin-top: 28px; }
+  .finoza .advisory-compass { width: min(82vw, 300px); box-shadow: 8px 10px 0 var(--finoza-forest); }
+  .finoza .compass-core { width: 88px; height: 88px; }
+  .finoza .compass-core strong { font-size: 0.92rem; }
+  .finoza .compass-core small { font-size: 0.52rem; }
+  .finoza .compass-node { width: 74px; padding: 6px 7px; border-radius: 4px; }
+  .finoza .compass-node span { font-size: 0.52rem; }
+  .finoza .compass-node strong { font-size: 0.62rem; margin-top: 1px; }
+  .finoza .compass-node small { font-size: 0.5rem; line-height: 1.2; }
+  .finoza .node-accounting, .finoza .node-vat { left: -4px; }
+  .finoza .node-controls, .finoza .node-systems { right: -4px; }
+  .finoza .node-accounting, .finoza .node-controls { top: 52px; }
+  .finoza .node-vat, .finoza .node-systems { bottom: 40px; }
+  .finoza .compass-label { top: 10px; font-size: 0.52rem; padding: 3px 7px; }
+  .finoza .compass-credential { bottom: 8px; font-size: 0.52rem; }
+}
+
+@media (max-width: 360px) {
+  .finoza .advisory-compass { width: min(84vw, 256px); box-shadow: 6px 8px 0 var(--finoza-forest); }
+  .finoza .compass-core { width: 76px; height: 76px; }
+  .finoza .compass-core strong { font-size: 0.8rem; }
+  .finoza .compass-node { width: 66px; padding: 4px 5px; }
+  .finoza .compass-node strong { font-size: 0.56rem; }
+  .finoza .compass-node small { display: none; }
 }
 
 /* ========================================================
@@ -957,21 +1008,22 @@ body.finoza {
 
 .finoza .subpage-hero {
   background: var(--finoza-mint);
-  padding: 160px 0 80px;
+  padding: clamp(100px, 14vw, 155px) 0 clamp(40px, 6vw, 75px);
   position: relative;
   border-bottom: 1px solid var(--finoza-border);
 }
 
 .finoza .breadcrumb {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-  font-size: 0.82rem;
+  gap: 8px 10px;
+  font-size: clamp(0.72rem, 1.4vw, 0.82rem);
   font-weight: 750;
   color: var(--finoza-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 .finoza .breadcrumb a {
   color: var(--finoza-green);
@@ -982,15 +1034,16 @@ body.finoza {
 }
 
 .finoza .subpage-hero h1 {
-  font-size: clamp(2.4rem, 4.4vw, 4rem);
+  font-size: clamp(2rem, 5vw, 3.8rem);
   color: var(--finoza-forest);
   margin: 0 0 16px;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.04em;
   font-weight: 800;
+  overflow-wrap: break-word;
 }
 .finoza .subpage-hero p {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
   color: var(--finoza-muted);
   max-width: 720px;
   margin: 0;
@@ -1207,10 +1260,91 @@ body.finoza {
   color: var(--finoza-green);
 }
 
-@media (max-width: 960px) {
+/* Contact Split Section & Form Stack */
+.finoza .cta-banner-dark {
+  text-align: left;
+  background: var(--finoza-forest);
+}
+.finoza .contact-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 50px;
+  align-items: start;
+}
+.finoza .contact-split-grid h2 {
+  color: #ffffff;
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  line-height: 1.15;
+  margin: 12px 0 16px;
+  overflow-wrap: break-word;
+}
+.finoza .contact-split-grid p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+.finoza .contact-split-grid .hero-location {
+  color: rgba(255, 255, 255, 0.75);
+}
+.finoza .form-stack {
+  display: grid;
+  gap: 14px;
+}
+.finoza .form-dual-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.finoza .form-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+.finoza .form-btn-row .button-finoza {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Multi-Page Grid & Component Breakpoints */
+@media (max-width: 1024px) {
+  .finoza .values-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .finoza .services-catalog-grid { grid-template-columns: 1fr; gap: 28px; }
+  .finoza .vat-matrix-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .finoza .contact-cards-row { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+
+@media (max-width: 900px) {
+  .finoza .contact-split-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
   .finoza .values-grid { grid-template-columns: 1fr; }
-  .finoza .services-catalog-grid { grid-template-columns: 1fr; }
   .finoza .vat-matrix-grid { grid-template-columns: 1fr; }
   .finoza .contact-cards-row { grid-template-columns: 1fr; }
+  .finoza .services-head { text-align: left; }
+}
+
+@media (max-width: 580px) {
+  .finoza .form-dual-fields { grid-template-columns: 1fr; gap: 12px; }
+  .finoza .catalog-card { padding: 30px 22px; }
+  .finoza .catalog-card h3 { font-size: 1.35rem; }
+  .finoza .value-card { padding: 28px 22px; }
+  .finoza .vat-card-feature { padding: 26px 20px; }
+  .finoza .contact-info-card { padding: 24px 20px; }
+  .finoza .cta-banner { padding: 36px 20px; }
+  .finoza .finoza-form-clean input { font-size: 16px; } /* Prevents iOS Safari input focus zoom */
+}
+
+@media (max-width: 380px) {
+  .finoza .catalog-card { padding: 24px 16px; border-radius: 14px; }
+  .finoza .value-card { padding: 24px 16px; border-radius: 14px; }
+  .finoza .vat-card-feature { padding: 22px 16px; border-radius: 14px; }
+  .finoza .contact-info-card { padding: 20px 16px; border-radius: 14px; }
+  .finoza .contact-info-icon { width: 44px; height: 44px; }
+  .finoza .button-finoza { padding: 12px 18px; font-size: 0.82rem; }
 }
 
