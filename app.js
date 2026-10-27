@@ -177,66 +177,140 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 5. INTERACTIVE EXECUTIVE FINANCIAL COCKPIT
+  // 5. INTERACTIVE UAE CORPORATE TAX & VAT SIMULATOR
   // ==========================================
-  const cockpit = document.querySelector('.finoza-cockpit-wrap');
-  if (cockpit) {
-    const tabs = cockpit.querySelectorAll('.cockpit-tab');
-    const panels = cockpit.querySelectorAll('.cockpit-panel');
-    let autoRotateTimer = null;
-    let isUserInteracted = false;
+  const calcWrap = document.querySelector('.finoza-calculator-wrap');
+  if (calcWrap) {
+    const revenueSlider = calcWrap.querySelector('#calc-revenue-slider');
+    const revenueDisplay = calcWrap.querySelector('#revenue-val-display');
+    const profitDisplay = calcWrap.querySelector('#profit-val-display');
+    const taxAmountDisplay = calcWrap.querySelector('#tax-amount-display');
+    const taxStatusBadge = calcWrap.querySelector('#tax-status-badge');
+    const vatStatusDisplay = calcWrap.querySelector('#vat-status-display');
+    const vatNoteDisplay = calcWrap.querySelector('#vat-note-display');
+    const einvStatusDisplay = calcWrap.querySelector('#einv-status-display');
+    const einvNoteDisplay = calcWrap.querySelector('#einv-note-display');
+    const jurisdictionBtns = calcWrap.querySelectorAll('.calc-toggle-btn');
+    const presetBtns = calcWrap.querySelectorAll('.preset-pill');
+    const marginBtns = calcWrap.querySelectorAll('.margin-pill');
 
-    const switchTab = (targetId) => {
-      tabs.forEach((tab) => {
-        const isSelected = tab.getAttribute('data-tab') === targetId;
-        tab.classList.toggle('active', isSelected);
-        tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
-      });
+    let currentJurisdiction = 'mainland';
+    let currentRevenue = 1500000;
+    let currentMargin = 0.20;
 
-      panels.forEach((panel) => {
-        const matches = panel.id === `panel-${targetId}`;
-        panel.classList.toggle('active', matches);
-        panel.hidden = !matches;
-      });
+    const formatAED = (num) => {
+      return 'AED ' + Math.round(num).toLocaleString('en-US');
     };
 
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => {
-        isUserInteracted = true;
-        if (autoRotateTimer) clearInterval(autoRotateTimer);
-        const tabKey = tab.getAttribute('data-tab');
-        if (tabKey) switchTab(tabKey);
-      });
+    const updateCalculator = () => {
+      // 1. Calculate Profit
+      const estimatedProfit = currentRevenue * currentMargin;
 
-      tab.addEventListener('keydown', (e) => {
-        let newIndex = null;
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-          newIndex = (index + 1) % tabs.length;
-        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-          newIndex = (index - 1 + tabs.length) % tabs.length;
-        }
-        if (newIndex !== null) {
-          e.preventDefault();
-          tabs[newIndex].focus();
-          tabs[newIndex].click();
-        }
-      });
-    });
-
-    // Gentle auto-preview rotation (every 7 seconds) until user explores
-    const tabKeys = ['tax', 'accounting', 'audit', 'systems'];
-    let currentIndex = 0;
-    autoRotateTimer = setInterval(() => {
-      if (isUserInteracted) {
-        clearInterval(autoRotateTimer);
-        return;
+      // Update input displays
+      if (revenueDisplay) revenueDisplay.textContent = formatAED(currentRevenue);
+      if (profitDisplay) {
+        profitDisplay.textContent = `${formatAED(estimatedProfit)} (${Math.round(currentMargin * 100)}%)`;
       }
-      currentIndex = (currentIndex + 1) % tabKeys.length;
-      switchTab(tabKeys[currentIndex]);
-    }, 7000);
 
-    cockpit.addEventListener('mouseenter', () => {
-      if (autoRotateTimer) clearInterval(autoRotateTimer);
+      // 2. Calculate UAE Corporate Tax
+      // Standard UAE CT Threshold: AED 375,000 at 0%, excess at 9%
+      const THRESHOLD = 375000;
+      let taxLiability = 0;
+
+      if (currentJurisdiction === 'freezone') {
+        // Designated Free Zone Qualifying Income Relief (0%)
+        taxLiability = 0;
+        if (taxAmountDisplay) taxAmountDisplay.textContent = 'AED 0 (0% Rate)';
+        if (taxStatusBadge) {
+          taxStatusBadge.className = 'result-status-badge freezone-relief';
+          const potentialTax = Math.max(0, (estimatedProfit - THRESHOLD) * 0.09);
+          if (potentialTax > 0) {
+            taxStatusBadge.textContent = `0% Free Zone Relief · Saving ${formatAED(potentialTax)}`;
+          } else {
+            taxStatusBadge.textContent = 'Designated Free Zone Qualifying Income (0%)';
+          }
+        }
+      } else {
+        // Mainland LLC
+        if (estimatedProfit <= THRESHOLD) {
+          taxLiability = 0;
+          if (taxAmountDisplay) taxAmountDisplay.textContent = 'AED 0';
+          if (taxStatusBadge) {
+            taxStatusBadge.className = 'result-status-badge under-threshold';
+            taxStatusBadge.textContent = 'Under AED 375,000 Threshold · 0% Rate';
+          }
+        } else {
+          taxLiability = (estimatedProfit - THRESHOLD) * 0.09;
+          if (taxAmountDisplay) taxAmountDisplay.textContent = formatAED(taxLiability);
+          if (taxStatusBadge) {
+            taxStatusBadge.className = 'result-status-badge taxable';
+            taxStatusBadge.textContent = `9% on excess over AED 375K (${formatAED(estimatedProfit - THRESHOLD)})`;
+          }
+        }
+      }
+
+      // 3. UAE VAT Threshold Rules
+      if (currentRevenue >= 375000) {
+        if (vatStatusDisplay) vatStatusDisplay.textContent = 'Mandatory Registration';
+        if (vatNoteDisplay) vatNoteDisplay.textContent = 'Quarterly returns required via EmaraTax.';
+      } else if (currentRevenue >= 187500) {
+        if (vatStatusDisplay) vatStatusDisplay.textContent = 'Voluntary Eligible';
+        if (vatNoteDisplay) vatNoteDisplay.textContent = 'Optional registration to reclaim input VAT.';
+      } else {
+        if (vatStatusDisplay) vatStatusDisplay.textContent = 'Registration Exempt';
+        if (vatNoteDisplay) vatNoteDisplay.textContent = 'Below mandatory AED 375K turnover threshold.';
+      }
+
+      // 4. E-Invoicing Phase 2 Status
+      if (einvStatusDisplay) einvStatusDisplay.textContent = 'Phase 2 Mandate';
+      if (einvNoteDisplay) einvNoteDisplay.textContent = 'PEPPOL / XML format readiness required for B2B.';
+    };
+
+    // Event: Jurisdiction buttons
+    jurisdictionBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        jurisdictionBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentJurisdiction = btn.getAttribute('data-jurisdiction') || 'mainland';
+        updateCalculator();
+      });
     });
+
+    // Event: Revenue Slider
+    if (revenueSlider) {
+      revenueSlider.addEventListener('input', (e) => {
+        currentRevenue = parseFloat(e.target.value) || 0;
+        presetBtns.forEach((p) => {
+          const val = parseFloat(p.getAttribute('data-preset'));
+          p.classList.toggle('active', Math.abs(val - currentRevenue) < 25000);
+        });
+        updateCalculator();
+      });
+    }
+
+    // Event: Preset Pills
+    presetBtns.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        presetBtns.forEach((p) => p.classList.remove('active'));
+        pill.classList.add('active');
+        const val = parseFloat(pill.getAttribute('data-preset')) || 1500000;
+        currentRevenue = val;
+        if (revenueSlider) revenueSlider.value = String(val);
+        updateCalculator();
+      });
+    });
+
+    // Event: Profit Margin Pills
+    marginBtns.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        marginBtns.forEach((p) => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentMargin = parseFloat(pill.getAttribute('data-margin')) || 0.20;
+        updateCalculator();
+      });
+    });
+
+    // Initial calculation run
+    updateCalculator();
   }
 });
