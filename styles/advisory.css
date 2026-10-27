@@ -663,18 +663,15 @@ body.finoza {
 .finoza .cta-form-wrap {
   max-width: 860px;
   margin: 0 auto;
+  width: 100%;
 }
 .finoza .finoza-form-clean {
   width: 100%;
+  display: block !important;
 }
-.finoza .form-row {
-  display: grid;
-  grid-template-columns: 1.1fr 1.2fr 1fr auto;
-  gap: 12px;
-  width: 100%;
-  align-items: center;
-}
-.finoza .form-row input {
+.finoza .finoza-form-clean input,
+.finoza .finoza-form-clean select,
+.finoza .finoza-form-clean textarea {
   width: 100%;
   height: 52px;
   padding: 0 22px;
@@ -682,19 +679,35 @@ body.finoza {
   border: 1px solid rgba(255, 255, 255, 0.25);
   background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  font-size: .92rem;
+  font-family: inherit;
+  font-size: .95rem;
   outline: none;
-  transition: background .2s, border-color .2s, box-shadow .2s;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, color .2s ease;
   box-sizing: border-box;
+  display: block;
 }
-.finoza .form-row input::placeholder {
-  color: rgba(255, 255, 255, 0.68);
+.finoza .finoza-form-clean input::placeholder,
+.finoza .finoza-form-clean select::placeholder,
+.finoza .finoza-form-clean textarea::placeholder {
+  color: rgba(255, 255, 255, 0.72);
 }
-.finoza .form-row input:focus {
+.finoza .finoza-form-clean input:focus,
+.finoza .finoza-form-clean select:focus,
+.finoza .finoza-form-clean textarea:focus {
   background: #ffffff;
   color: var(--finoza-forest);
   border-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(0, 176, 116, 0.35);
+}
+.finoza .finoza-form-clean input:focus::placeholder {
+  color: rgba(7, 60, 52, 0.55);
+}
+.finoza .form-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr 1fr auto;
+  gap: 12px;
+  width: 100%;
+  align-items: center;
 }
 .finoza .form-row .button-finoza {
   height: 52px;
@@ -1467,20 +1480,35 @@ body.finoza {
 .finoza .form-stack {
   display: grid;
   gap: 14px;
+  width: 100%;
+}
+.finoza .form-field-wrap {
+  width: 100%;
+  min-width: 0;
 }
 .finoza .form-dual-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  width: 100%;
+}
+.finoza .form-dual-fields > div {
+  width: 100%;
+  min-width: 0;
 }
 .finoza .form-btn-row {
   display: flex;
   justify-content: flex-end;
   margin-top: 6px;
+  width: 100%;
 }
 .finoza .form-btn-row .button-finoza {
   width: 100%;
+  height: 52px;
   justify-content: center;
+  font-size: .95rem;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(0, 176, 116, 0.35);
 }
 
 /* Multi-Page Grid & Component Breakpoints */
