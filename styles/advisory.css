@@ -1008,103 +1008,364 @@ body.finoza {
 .finoza .hero-location span { position: relative; padding-left: 14px; color: var(--finoza-muted); font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .finoza .hero-location span::before { content: ""; position: absolute; left: 0; top: .55em; width: 5px; height: 5px; border-radius: 50%; background: var(--finoza-green); }
 
-.finoza .advisory-compass {
+/* ========================================================
+   INTERACTIVE EXECUTIVE FINANCIAL COCKPIT (HERO RIGHT)
+   ======================================================== */
+.finoza .finoza-cockpit-wrap {
   position: relative;
-  width: min(100%, 520px);
-  aspect-ratio: 1;
+  width: 100%;
+  max-width: 580px;
   margin-inline: auto;
-  border: 1px solid rgba(7,60,52,.16);
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow:
-    0 0 0 10px rgba(7,60,52,.025),
-    0 24px 60px rgba(7,60,52,.10),
-    0 6px 18px rgba(7,60,52,.05);
-  transition: transform .3s ease, box-shadow .3s ease;
 }
-.finoza .advisory-compass::before,
-.finoza .advisory-compass::after { content: ""; position: absolute; background: rgba(7,60,52,.14); }
-.finoza .advisory-compass::before { left: 50%; top: 6%; bottom: 6%; width: 1px; }
-.finoza .advisory-compass::after { top: 50%; left: 6%; right: 6%; height: 1px; }
-.finoza .compass-label {
+
+/* Floating credential & licensing badges */
+.finoza .cockpit-float-badge {
   position: absolute;
-  z-index: 5;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 7px 16px;
-  border: 1px solid rgba(7,60,52,.14);
-  border-radius: 99px;
-  background: #fff;
-  color: var(--finoza-forest);
-  font-size: .62rem;
-  font-weight: 850;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(7,60,52,.06);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(7, 60, 52, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(7, 60, 52, 0.09);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.finoza .compass-orbit { position: absolute; z-index: 1; left: 50%; top: 50%; transform: translate(-50%, -50%); border: 1px dashed rgba(7,60,52,.25); border-radius: 50%; }
-.finoza .orbit-one { width: 72%; height: 72%; }
-.finoza .orbit-two { width: 46%; height: 46%; border-style: solid; }
-.finoza .compass-core {
-  position: absolute;
-  z-index: 4;
-  left: 50%;
-  top: 50%;
-  width: 155px;
-  height: 155px;
-  transform: translate(-50%, -50%);
-  display: grid;
-  place-content: center;
-  border-radius: 50%;
-  background: var(--finoza-forest);
-  color: #fff;
-  text-align: center;
-  box-shadow: 0 18px 36px rgba(7,60,52,.25);
-}
-.finoza .compass-core small { color: #a6d8c1; font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-.finoza .compass-core strong { margin-top: 5px; font-size: 1.42rem; line-height: 1; letter-spacing: -.04em; }
-.finoza .compass-node {
-  position: absolute;
-  z-index: 4;
-  width: 130px;
-  padding: 12px 14px;
-  border: 1px solid rgba(7,60,52,.12);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 10px 26px rgba(7,60,52,.08);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-.finoza .compass-node:hover {
+.finoza .cockpit-float-badge:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(7,60,52,.12);
+  box-shadow: 0 16px 36px rgba(7, 60, 52, 0.13);
 }
-.finoza .compass-node span { display: block; color: var(--finoza-green); font-size: .6rem; font-weight: 900; letter-spacing: .08em; }
-.finoza .compass-node strong, .finoza .compass-node small { display: block; }
-.finoza .compass-node strong { margin-top: 3px; color: var(--finoza-forest); font-size: .84rem; font-weight: 800; line-height: 1.2; }
-.finoza .compass-node small { margin-top: 2px; color: var(--finoza-muted); font-size: .68rem; line-height: 1.25; }
-.finoza .node-accounting { left: -10px; top: 110px; }
-.finoza .node-controls { right: -10px; top: 110px; }
-.finoza .node-vat { left: -10px; bottom: 80px; }
-.finoza .node-systems { right: -10px; bottom: 80px; }
-.finoza .compass-credential {
-  position: absolute;
-  z-index: 5;
-  left: 50%;
-  bottom: 18px;
-  transform: translateX(-50%);
-  padding: 7px 16px;
-  border: 1px solid rgba(7,60,52,.14);
-  border-radius: 99px;
-  background: #fff;
-  color: var(--finoza-forest);
-  font-size: .62rem;
+.finoza .cockpit-float-badge.badge-cpa {
+  top: -16px;
+  right: -10px;
+}
+.finoza .cockpit-float-badge.badge-reg {
+  bottom: -16px;
+  left: -10px;
+}
+.finoza .cockpit-float-badge .badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(0, 176, 116, 0.12);
+  color: var(--finoza-green);
+  flex-shrink: 0;
+}
+.finoza .cockpit-float-badge .badge-icon svg {
+  width: 16px;
+  height: 16px;
+}
+.finoza .cockpit-float-badge .badge-text {
+  display: flex;
+  flex-direction: column;
+}
+.finoza .cockpit-float-badge strong {
+  font-size: 0.72rem;
   font-weight: 850;
-  letter-spacing: .12em;
+  color: var(--finoza-forest);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.finoza .cockpit-float-badge span {
+  font-size: 0.62rem;
+  color: var(--finoza-muted);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Pulsing live verification dot */
+.finoza .live-dot,
+.finoza .pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--finoza-green);
+  box-shadow: 0 0 0 rgba(0, 176, 116, 0.6);
+  animation: pulseDot 2s infinite;
+  flex-shrink: 0;
+}
+@keyframes pulseDot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 176, 116, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(0, 176, 116, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 176, 116, 0);
+  }
+}
+
+/* Main Dashboard Card */
+.finoza .finoza-cockpit {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(7, 60, 52, 0.13);
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 8px rgba(7, 60, 52, 0.02),
+    0 24px 60px rgba(7, 60, 52, 0.08),
+    0 4px 16px rgba(7, 60, 52, 0.03);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Cockpit Header */
+.finoza .cockpit-header {
+  padding: 18px 22px 14px;
+  background: #fbfdfc;
+  border-bottom: 1px solid rgba(7, 60, 52, 0.08);
+}
+.finoza .cockpit-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+.finoza .status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--finoza-forest);
+}
+.finoza .status-region {
+  color: var(--finoza-muted);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+}
+
+/* Segmented Tab Buttons */
+.finoza .cockpit-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 4px;
+  background: rgba(7, 60, 52, 0.05);
+  border-radius: 12px;
+}
+.finoza .cockpit-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 6px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--finoza-forest);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(7,60,52,.06);
+}
+.finoza .cockpit-tab .tab-index {
+  font-size: 0.58rem;
+  font-weight: 900;
+  opacity: 0.65;
+}
+.finoza .cockpit-tab:hover {
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--finoza-dark);
+}
+.finoza .cockpit-tab.active {
+  background: var(--finoza-forest);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(7, 60, 52, 0.2);
+}
+.finoza .cockpit-tab.active .tab-index {
+  color: var(--finoza-green-bright);
+  opacity: 1;
+}
+
+/* Cockpit Panels */
+.finoza .cockpit-panels {
+  min-height: 290px;
+}
+.finoza .cockpit-panel {
+  display: none;
+  padding: 22px 24px 20px;
+  animation: cockpitFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.finoza .cockpit-panel.active {
+  display: block;
+}
+@keyframes cockpitFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Headline in panel */
+.finoza .panel-headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.finoza .panel-eyebrow {
+  display: block;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--finoza-green);
+  margin-bottom: 4px;
+}
+.finoza .panel-headline h3 {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--finoza-forest);
+}
+.finoza .panel-badge-pill {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  background: rgba(0, 176, 116, 0.1);
+  border: 1px solid rgba(0, 176, 116, 0.25);
+  border-radius: 99px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--finoza-green);
+}
+
+/* Metrics Grid: 3 columns */
+.finoza .cockpit-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.finoza .metric-card {
+  padding: 11px 12px;
+  background: #f7faf8;
+  border: 1px solid rgba(7, 60, 52, 0.08);
+  border-radius: 10px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.finoza .metric-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 176, 116, 0.35);
+  background: #ffffff;
+}
+.finoza .metric-num {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 850;
+  color: var(--finoza-green);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.finoza .metric-title {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--finoza-forest);
+  line-height: 1.2;
+}
+.finoza .metric-sub {
+  margin: 4px 0 0;
+  font-size: 0.64rem;
+  color: var(--finoza-muted);
+  line-height: 1.35;
+}
+
+/* Tags row */
+.finoza .panel-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.finoza .panel-tag {
+  padding: 3px 9px;
+  background: #f2f7f4;
+  border: 1px solid rgba(7, 60, 52, 0.08);
+  border-radius: 99px;
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: var(--finoza-forest);
+}
+
+/* Action Bar */
+.finoza .panel-action-bar {
+  display: flex;
+  justify-content: flex-end;
+}
+.finoza .cockpit-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--finoza-green);
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+.finoza .cockpit-link-btn:hover {
+  gap: 9px;
+  color: var(--finoza-forest);
+}
+
+/* Cockpit Footer */
+.finoza .cockpit-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 22px;
+  background: #f4faf6;
+  border-top: 1px solid rgba(7, 60, 52, 0.08);
+}
+.finoza .cockpit-footer .footer-note {
+  font-size: 0.68rem;
+  color: var(--finoza-muted);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.finoza .cockpit-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: var(--finoza-forest);
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.finoza .cockpit-cta-btn:hover {
+  background: var(--finoza-green);
+  transform: translateY(-1px);
+}
+.finoza .cockpit-cta-btn span {
+  transition: transform 0.2s ease;
+}
+.finoza .cockpit-cta-btn:hover span {
+  transform: translateX(3px);
 }
 
 /* A service index replaces the familiar centered card deck. */
@@ -1145,17 +1406,9 @@ body.finoza {
   .finoza .finoza-hero { padding-top: 110px; }
   .finoza .hero-left h1 { font-size: clamp(2.4rem, 11vw, 4.2rem); line-height: 1.02; }
   .finoza .hero-desc { font-size: 1rem; }
-  .finoza .advisory-compass {
-    width: min(82vw, 380px);
-    box-shadow: 0 0 0 6px rgba(7,60,52,.03), 0 16px 40px rgba(7,60,52,.09);
-  }
-  .finoza .compass-label { top: 14px; padding: 5px 12px; font-size: .56rem; }
-  .finoza .compass-credential { bottom: 14px; padding: 5px 12px; font-size: .56rem; }
-  .finoza .compass-core { width: 116px; height: 116px; }
-  .finoza .compass-core strong { font-size: 1.1rem; }
-  .finoza .compass-node { width: 96px; padding: 8px 10px; }
-  .finoza .node-accounting, .finoza .node-controls { top: 70px; }
-  .finoza .node-vat, .finoza .node-systems { bottom: 54px; }
+  .finoza .finoza-cockpit-wrap { max-width: 100%; }
+  .finoza .cockpit-float-badge.badge-cpa { top: -12px; right: 6px; }
+  .finoza .cockpit-float-badge.badge-reg { bottom: -12px; left: 6px; }
   .finoza .service-box { grid-template-columns: 36px 1fr 34px; gap: 12px; }
   .finoza .service-box .icon-circle { display: none; }
   .finoza .service-box h3 { font-size: 1.05rem; }
@@ -1169,35 +1422,19 @@ body.finoza {
   .finoza .hero-btn-row .button-finoza,
   .finoza .hero-btn-row .hero-text-link { width: 100%; justify-content: center; text-align: center; }
   .finoza .hero-location { gap: 10px 18px; margin-top: 28px; }
-  .finoza .advisory-compass {
-    width: min(82vw, 300px);
-    box-shadow: 0 0 0 4px rgba(7,60,52,.03), 0 12px 30px rgba(7,60,52,.08);
-  }
-  .finoza .compass-core { width: 88px; height: 88px; }
-  .finoza .compass-core strong { font-size: 0.92rem; }
-  .finoza .compass-core small { font-size: 0.52rem; }
-  .finoza .compass-node { width: 74px; padding: 6px 7px; border-radius: 4px; }
-  .finoza .compass-node span { font-size: 0.52rem; }
-  .finoza .compass-node strong { font-size: 0.62rem; margin-top: 1px; }
-  .finoza .compass-node small { font-size: 0.5rem; line-height: 1.2; }
-  .finoza .node-accounting, .finoza .node-vat { left: -4px; }
-  .finoza .node-controls, .finoza .node-systems { right: -4px; }
-  .finoza .node-accounting, .finoza .node-controls { top: 52px; }
-  .finoza .node-vat, .finoza .node-systems { bottom: 40px; }
-  .finoza .compass-label { top: 10px; font-size: 0.52rem; padding: 3px 8px; }
-  .finoza .compass-credential { bottom: 8px; font-size: 0.52rem; padding: 3px 8px; }
+  .finoza .cockpit-tabs { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .finoza .cockpit-tab { font-size: 0.68rem; padding: 7px 4px; }
+  .finoza .cockpit-metrics-grid { grid-template-columns: 1fr; gap: 8px; }
+  .finoza .cockpit-float-badge.badge-cpa { position: static; margin-bottom: 12px; width: 100%; }
+  .finoza .cockpit-float-badge.badge-reg { display: none; }
+  .finoza .cockpit-footer { flex-direction: column; align-items: stretch; text-align: center; gap: 10px; }
+  .finoza .cockpit-cta-btn { justify-content: center; width: 100%; }
+  .finoza .cockpit-panels { min-height: auto; }
 }
 
 @media (max-width: 360px) {
-  .finoza .advisory-compass {
-    width: min(84vw, 256px);
-    box-shadow: 0 0 0 3px rgba(7,60,52,.03), 0 8px 20px rgba(7,60,52,.08);
-  }
-  .finoza .compass-core { width: 76px; height: 76px; }
-  .finoza .compass-core strong { font-size: 0.8rem; }
-  .finoza .compass-node { width: 66px; padding: 4px 5px; }
-  .finoza .compass-node strong { font-size: 0.56rem; }
-  .finoza .compass-node small { display: none; }
+  .finoza .cockpit-tab { font-size: 0.64rem; padding: 6px 2px; }
+  .finoza .panel-headline h3 { font-size: 0.98rem; }
 }
 
 /* ========================================================

@@ -175,4 +175,68 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 350);
     });
   });
+
+  // ==========================================
+  // 5. INTERACTIVE EXECUTIVE FINANCIAL COCKPIT
+  // ==========================================
+  const cockpit = document.querySelector('.finoza-cockpit-wrap');
+  if (cockpit) {
+    const tabs = cockpit.querySelectorAll('.cockpit-tab');
+    const panels = cockpit.querySelectorAll('.cockpit-panel');
+    let autoRotateTimer = null;
+    let isUserInteracted = false;
+
+    const switchTab = (targetId) => {
+      tabs.forEach((tab) => {
+        const isSelected = tab.getAttribute('data-tab') === targetId;
+        tab.classList.toggle('active', isSelected);
+        tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+      });
+
+      panels.forEach((panel) => {
+        const matches = panel.id === `panel-${targetId}`;
+        panel.classList.toggle('active', matches);
+        panel.hidden = !matches;
+      });
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        isUserInteracted = true;
+        if (autoRotateTimer) clearInterval(autoRotateTimer);
+        const tabKey = tab.getAttribute('data-tab');
+        if (tabKey) switchTab(tabKey);
+      });
+
+      tab.addEventListener('keydown', (e) => {
+        let newIndex = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          newIndex = (index + 1) % tabs.length;
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          newIndex = (index - 1 + tabs.length) % tabs.length;
+        }
+        if (newIndex !== null) {
+          e.preventDefault();
+          tabs[newIndex].focus();
+          tabs[newIndex].click();
+        }
+      });
+    });
+
+    // Gentle auto-preview rotation (every 7 seconds) until user explores
+    const tabKeys = ['tax', 'accounting', 'audit', 'systems'];
+    let currentIndex = 0;
+    autoRotateTimer = setInterval(() => {
+      if (isUserInteracted) {
+        clearInterval(autoRotateTimer);
+        return;
+      }
+      currentIndex = (currentIndex + 1) % tabKeys.length;
+      switchTab(tabKeys[currentIndex]);
+    }, 7000);
+
+    cockpit.addEventListener('mouseenter', () => {
+      if (autoRotateTimer) clearInterval(autoRotateTimer);
+    });
+  }
 });

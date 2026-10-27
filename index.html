@@ -152,35 +152,247 @@
         </div>
 
         <div class="hero-right reveal">
-          <div class="advisory-compass" aria-label="Finovision integrated advisory model visual diagram">
-            <div class="compass-label">One connected practice</div>
-            <div class="compass-orbit orbit-one" aria-hidden="true"></div>
-            <div class="compass-orbit orbit-two" aria-hidden="true"></div>
-            <div class="compass-core">
-              <small>Finovision</small>
-              <strong>Finance<br>in focus</strong>
+          <div class="finoza-cockpit-wrap" aria-label="Finovision Interactive Advisory Suite">
+            
+            <!-- Floating Partner Credential Badge -->
+            <div class="cockpit-float-badge badge-cpa" aria-label="Partner qualifications">
+              <div class="badge-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <div class="badge-text">
+                <strong>CPA · MBA · GCC VAT</strong>
+                <span>Lead Partner Credentials</span>
+              </div>
             </div>
-            <div class="compass-node node-accounting">
-              <span>01</span>
-              <strong>Records</strong>
-              <small>Accounting</small>
+
+            <!-- Floating Jurisdiction & Compliance Badge -->
+            <div class="cockpit-float-badge badge-reg" aria-label="Licensing and jurisdiction">
+              <span class="live-dot" aria-hidden="true"></span>
+              <div class="badge-text">
+                <strong>Sharjah Media City · Lic. #1804056</strong>
+                <span>UAE FTA Tax &amp; Corporate Compliant</span>
+              </div>
             </div>
-            <div class="compass-node node-controls">
-              <span>02</span>
-              <strong>Confidence</strong>
-              <small>Controls</small>
+
+            <!-- Main Executive Card -->
+            <div class="finoza-cockpit">
+              <!-- Cockpit Header: Status Bar & Title -->
+              <div class="cockpit-header">
+                <div class="cockpit-status-bar">
+                  <span class="status-indicator">
+                    <span class="pulse-dot" aria-hidden="true"></span>
+                    Live Advisory Suite
+                  </span>
+                  <span class="status-region">UAE · Oman · India</span>
+                </div>
+                
+                <!-- Interactive Service Tabs -->
+                <div class="cockpit-tabs" role="tablist" aria-label="Finovision core practices">
+                  <button type="button" class="cockpit-tab active" role="tab" id="tab-tax" aria-selected="true" aria-controls="panel-tax" data-tab="tax">
+                    <span class="tab-index">01</span>
+                    <span class="tab-title">Corporate Tax</span>
+                  </button>
+                  <button type="button" class="cockpit-tab" role="tab" id="tab-accounting" aria-selected="false" aria-controls="panel-accounting" data-tab="accounting">
+                    <span class="tab-index">02</span>
+                    <span class="tab-title">Accounting</span>
+                  </button>
+                  <button type="button" class="cockpit-tab" role="tab" id="tab-audit" aria-selected="false" aria-controls="panel-audit" data-tab="audit">
+                    <span class="tab-index">03</span>
+                    <span class="tab-title">Audit</span>
+                  </button>
+                  <button type="button" class="cockpit-tab" role="tab" id="tab-systems" aria-selected="false" aria-controls="panel-systems" data-tab="systems">
+                    <span class="tab-index">04</span>
+                    <span class="tab-title">Systems</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Cockpit Panels Container -->
+              <div class="cockpit-panels">
+
+                <!-- PANEL 1: CORPORATE TAX & VAT -->
+                <div class="cockpit-panel active" id="panel-tax" role="tabpanel" aria-labelledby="tab-tax">
+                  <div class="panel-headline">
+                    <div>
+                      <span class="panel-eyebrow">FTA Corporate &amp; VAT Mandates</span>
+                      <h3>UAE Corporate Tax (9%) &amp; E-Invoicing</h3>
+                    </div>
+                    <span class="panel-badge-pill">FTA Compliant</span>
+                  </div>
+
+                  <div class="cockpit-metrics-grid">
+                    <div class="metric-card">
+                      <span class="metric-num">9% CT</span>
+                      <strong class="metric-title">Corporate Tax Threshold</strong>
+                      <p class="metric-sub">AED 375,000 net profit threshold, Free Zone qualifying income &amp; relief.</p>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-num">Phase 2</span>
+                      <strong class="metric-title">Federal E-Invoicing</strong>
+                      <p class="metric-sub">Full PEPPOL &amp; XML data compliance for UAE B2B and B2G billing systems.</p>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-num">100%</span>
+                      <strong class="metric-title">On-Time VAT Filings</strong>
+                      <p class="metric-sub">Zero-penalty track record across EmaraTax returns and audit assessments.</p>
+                    </div>
+                  </div>
+
+                  <div class="panel-tags-row">
+                    <span class="panel-tag">EmaraTax Filings</span>
+                    <span class="panel-tag">Free Zone 0% Relief</span>
+                    <span class="panel-tag">Transfer Pricing</span>
+                    <span class="panel-tag">GCC VAT Compliance</span>
+                  </div>
+
+                  <div class="panel-action-bar">
+                    <a class="cockpit-link-btn" href="/vat-services">
+                      <span>Explore Tax &amp; VAT Consultancy</span>
+                      <span class="arrow-glyph" aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- PANEL 2: ACCOUNTING & BOOKKEEPING -->
+                <div class="cockpit-panel" id="panel-accounting" role="tabpanel" aria-labelledby="tab-accounting" hidden>
+                  <div class="panel-headline">
+                    <div>
+                      <span class="panel-eyebrow">Operational Financial Discipline</span>
+                      <h3>Accounting, Bookkeeping &amp; WPS Payroll</h3>
+                    </div>
+                    <span class="panel-badge-pill">MOHRE Verified</span>
+                  </div>
+
+                  <div class="cockpit-metrics-grid">
+                    <div class="metric-card">
+                      <span class="metric-num">5 Days</span>
+                      <strong class="metric-title">Fast Monthly Close</strong>
+                      <p class="metric-sub">Accelerated management MIS reports, P&amp;L finalization, and cashflow oversight.</p>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-num">100% SIF</span>
+                      <strong class="metric-title">UAE WPS Processing</strong>
+                      <p class="metric-sub">Wages Protection System compliant salary processing and employee records.</p>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-num">Multi-Ledger</span>
+                      <strong class="metric-title">Cross-Border Books</strong>
+                      <p class="metric-sub">Synchronized reporting across UAE dirhams, Omani rials, Indian rupees, and USD.</p>
+                    </div>
+                  </div>
+
+                  <div class="panel-tags-row">
+                    <span class="panel-tag">Daily General Ledger</span>
+                    <span class="panel-tag">Bank Reconciliations</span>
+                    <span class="panel-tag">WPS Payroll SIF</span>
+                    <span class="panel-tag">Monthly MIS</span>
+                  </div>
+
+                  <div class="panel-action-bar">
+                    <a class="cockpit-link-btn" href="/services#accounting">
+                      <span>Explore Accounting Solutions</span>
+                      <span class="arrow-glyph" aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- PANEL 3: AUDIT & ASSURANCE -->
+                <div class="cockpit-panel" id="panel-audit" role="tabpanel" aria-labelledby="tab-audit" hidden>
+                  <div class="panel-headline">
+                    <div>
+                      <span class="panel-eyebrow">Governance &amp; Controls</span>
+                      <h3>Independent Audit Rigor &amp; Risk Review</h3>
+                    </div>
+                    <span class="panel-badge-pill">CPA Supervised</span>
+                  </div>
+
+                  <div class="cockpit-metrics-grid">
+                    <div class="metric-card">
+                      <span class="metric-num">99.4%</span>
+                      <strong class="metric-title">Internal Control Rigor</strong>
+                      <p class="metric-sub">Operational audit testing to prevent revenue leakages and verify authorizations.</p>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-num">IFRS</span>
+                      <strong class="metric-title">Standard Compliance</strong>
+                      <p class="metric-sub">International Financial Reporting Standards adopted for transparent disclosures.</p>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-num">Approved</span>
+                      <strong class="metric-title">Free Zone &amp; Mainland</strong>
+                      <p class="metric-sub">Financial statements accepted by major UAE licensing authorities and tier-1 banks.</p>
+                    </div>
+                  </div>
+
+                  <div class="panel-tags-row">
+                    <span class="panel-tag">Internal Controls</span>
+                    <span class="panel-tag">Stock Verification</span>
+                    <span class="panel-tag">Fraud Prevention</span>
+                    <span class="panel-tag">Free Zone Audit Prep</span>
+                  </div>
+
+                  <div class="panel-action-bar">
+                    <a class="cockpit-link-btn" href="/services#audit">
+                      <span>Explore Auditing &amp; Assurance</span>
+                      <span class="arrow-glyph" aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- PANEL 4: SYSTEMS & IT -->
+                <div class="cockpit-panel" id="panel-systems" role="tabpanel" aria-labelledby="tab-systems" hidden>
+                  <div class="panel-headline">
+                    <div>
+                      <span class="panel-eyebrow">Enterprise IT Architecture</span>
+                      <h3>Business Software, Cloud ERP &amp; Integrations</h3>
+                    </div>
+                    <span class="panel-badge-pill">Certified Setup</span>
+                  </div>
+
+                  <div class="cockpit-metrics-grid">
+                    <div class="metric-card">
+                      <span class="metric-num">4+ Platforms</span>
+                      <strong class="metric-title">ERP Implementations</strong>
+                      <p class="metric-sub">Expert configuration of Zoho Books, QuickBooks, Odoo, and TallyPrime.</p>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-num">Real-Time</span>
+                      <strong class="metric-title">Cloud Synchronization</strong>
+                      <p class="metric-sub">Automated POS, e-commerce, and inventory pipelines flowing into ledgers.</p>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-num">Zero Errors</span>
+                      <strong class="metric-title">Workflow Automation</strong>
+                      <p class="metric-sub">Eliminate repetitive manual spreadsheet errors with automated business logic.</p>
+                    </div>
+                  </div>
+
+                  <div class="panel-tags-row">
+                    <span class="panel-tag">Zoho Implementation</span>
+                    <span class="panel-tag">QuickBooks Online</span>
+                    <span class="panel-tag">Tally Migration</span>
+                    <span class="panel-tag">E-Invoicing API</span>
+                  </div>
+
+                  <div class="panel-action-bar">
+                    <a class="cockpit-link-btn" href="/services#software">
+                      <span>Explore Business Software &amp; IT</span>
+                      <span class="arrow-glyph" aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Cockpit Footer: Action Hook -->
+              <div class="cockpit-footer">
+                <span class="footer-note">CPA-led strategic advisory across Sharjah, Dubai &amp; the Gulf</span>
+                <a class="cockpit-cta-btn" href="/contact">Book Financial Review <span>→</span></a>
+              </div>
             </div>
-            <div class="compass-node node-vat">
-              <span>03</span>
-              <strong>Compliance</strong>
-              <small>VAT &amp; Corporate Tax</small>
-            </div>
-            <div class="compass-node node-systems">
-              <span>04</span>
-              <strong>Flow</strong>
-              <small>Systems</small>
-            </div>
-            <div class="compass-credential">CPA · MBA · GCC VAT</div>
+
           </div>
         </div>
       </div>
