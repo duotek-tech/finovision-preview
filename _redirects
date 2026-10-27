@@ -1,0 +1,10 @@
+# Primary Domain Canonicalization (Redirect finovision.net to finovision.ae)
+https://finovision.net/* https://finovision.ae/:splat 301!
+https://www.finovision.net/* https://finovision.ae/:splat 301!
+https://www.finovision.ae/* https://finovision.ae/:splat 301!
+
+# Clean URLs (Hide .html extension)
+/about.html /about 301!
+/services.html /services 301!
+/vat-services.html /vat-services 301!
+/contact.html /contact 301!

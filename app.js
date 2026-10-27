@@ -2,11 +2,12 @@
  * Finovision Business Solutions LLC — Client-Side Application Script
  * 
  * Features:
+ * - Active navigation link highlighting for clean URLs (no .html extensions)
  * - Accessible mobile navigation drawer with keyboard and focus handling
  * - Viewport intersection observer for smooth scroll-reveal animations
  * - Client consultation request form handling and feedback states
  *
- * @version 1.0.0
+ * @version 1.1.0
  * @license Proprietary
  */
 
@@ -14,7 +15,31 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
-  // 1. MOBILE NAVIGATION DRAWER
+  // 1. ACTIVE NAVIGATION LINK MATCHING
+  // ==========================================
+  const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+  const navAnchors = document.querySelectorAll('.nav-links a:not(.button-finoza)');
+
+  navAnchors.forEach((link) => {
+    const linkHref = link.getAttribute('href');
+    if (!linkHref) return;
+
+    const normalizedHref = linkHref.replace(/\/$/, '') || '/';
+    // Match exact path, or match without .html
+    const cleanHref = normalizedHref.replace(/\.html$/, '');
+
+    if (
+      currentPath === cleanHref ||
+      (currentPath === '/' && cleanHref === '/') ||
+      (cleanHref !== '/' && currentPath.endsWith(cleanHref))
+    ) {
+      navAnchors.forEach((a) => a.classList.remove('active'));
+      link.classList.add('active');
+    }
+  });
+
+  // ==========================================
+  // 2. MOBILE NAVIGATION DRAWER
   // ==========================================
   const menuButton = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -63,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 2. SCROLL REVEAL OBSERVER
+  // 3. SCROLL REVEAL OBSERVER
   // ==========================================
   if ('IntersectionObserver' in window) {
     const revealElements = document.querySelectorAll('.reveal');
@@ -92,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 3. CONSULTATION REQUEST FORM HANDLING
+  // 4. CONSULTATION REQUEST FORM HANDLING
   // ==========================================
   const forms = document.querySelectorAll('.contact-form');
 
@@ -102,8 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const submitBtn = form.querySelector('button[type="submit"]');
       const statusElement = form.querySelector('.form-status');
-      const nameInput = form.querySelector('input[type="text"]');
-      const emailInput = form.querySelector('input[type="email"]');
+      const nameInput = form.querySelector('input[name="fullName"], input[type="text"]');
+      const emailInput = form.querySelector('input[name="email"], input[type="email"]');
 
       if (!nameInput?.value.trim() || !emailInput?.value.trim()) {
         if (statusElement) {

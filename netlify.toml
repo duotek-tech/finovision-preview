@@ -1,0 +1,26 @@
+[build]
+  publish = "."
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+[[redirects]]
+  from = "https://finovision.net/*"
+  to = "https://finovision.ae/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.finovision.net/*"
+  to = "https://finovision.ae/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.finovision.ae/*"
+  to = "https://finovision.ae/:splat"
+  status = 301
+  force = true

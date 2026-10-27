@@ -2,21 +2,24 @@
 
 [![Status](https://img.shields.io/badge/Status-Multi--Page%20Production%20Ready-10b981.svg)]()
 [![Standards](https://img.shields.io/badge/Standards-HTML5%20%7C%20WCAG%202.1%20AA-blue.svg)]()
-[![Theme](https://img.shields.io/badge/Design-Integrated%20Advisory%20(Emerald%20%26%20Alabaster)-073c34.svg)]()
+[![SEO](https://img.shields.io/badge/Domain-finovision.ae%20(Primary)-073c34.svg)]()
+[![CleanURLs](https://img.shields.io/badge/URLs-Clean%20(No%20.html)-10b981.svg)]()
 
 Multi-page corporate website for **Finovision Business Solutions LLC**, an accredited business advisory, accounting, statutory audit, UAE VAT compliance, and cloud ERP systems firm based in Sharjah Media City (Shams), UAE.
 
 ---
 
-## Table of Contents
+## Domains & Clean URL Architecture
 
-- [Corporate Identity](#corporate-identity)
-- [Multi-Page Architecture](#multi-page-architecture)
-- [Design System](#design-system)
-- [Coding Standards & Accessibility](#coding-standards--accessibility)
-- [Local Development & Testing](#local-development--testing)
-- [Deployment Guide](#deployment-guide)
-- [Documentation Suite](#documentation-suite)
+- **Primary Canonical Domain**: [`https://finovision.ae`](https://finovision.ae)
+- **Secondary Domain**: `finovision.net` (Permanently redirected via HTTP 301 to `https://finovision.ae`)
+- **Clean URLs**: All public routes hide `.html` extensions (`/`, `/about`, `/services`, `/vat-services`, `/contact`).
+- **Pre-Configured Hosting Rules**:
+  - `vercel.json`: `"cleanUrls": true` + 301 redirects for `finovision.net` & `www.*`.
+  - `_redirects` & `netlify.toml`: 301 rules for Netlify and Cloudflare Pages.
+  - `.htaccess`: Apache/cPanel mod_rewrite rules for HTTPS, domain canonicalization, and `.html` stripping.
+  - `sitemap.xml` & `robots.txt`: Search engine index files referencing canonical clean URLs.
+  - Directory indices (`about/index.html`, etc.) for zero-config local servers.
 
 ---
 
@@ -41,27 +44,36 @@ Multi-page corporate website for **Finovision Business Solutions LLC**, an accre
 
 ## Multi-Page Architecture
 
-Instead of an all-in-one scrolling layout, the website is organized into dedicated pages populated with verified data from the company's official documentation:
-
 ```text
 finovision/
 ├── index.html               # Home (Hero Advisory Compass, Practice highlights, Track Record)
-├── about.html               # About Us (Company Profile, Vision, Mission, Values, Team Qualifications)
-├── services.html            # Services (Consultancy & Value-Added Technology Solutions)
+├── about.html               # About Us (Company Profile, Vision, Mission, Values, Qualifications)
+├── services.html            # Services (Consultancy, ERP Software, POS & IT Solutions)
 ├── vat-services.html        # UAE VAT & Tax (Dedicated compliance flyer specifications)
-├── contact.html             # Contact Us (Direct hotline, Office hours, Consultation form, FAQ)
-├── app.js                   # Client-side JavaScript (Strict Mode, accessible mobile drawer, reveal observer)
+├── contact.html             # Contact Us (Directory, Office hours, Consultation form, FAQ)
+├── about/index.html         # Directory clean URL fallback
+├── services/index.html      # Directory clean URL fallback
+├── vat-services/index.html  # Directory clean URL fallback
+├── contact/index.html       # Directory clean URL fallback
+├── app.js                   # Client-side JavaScript (clean URL active matcher, mobile drawer, reveal)
 ├── styles/
 │   ├── base.css             # Foundational tokens, reset, typography, and accessibility utilities
-│   └── advisory.css         # Advisory theme components, subpage banners, and responsive styles
+│   └── advisory.css         # Advisory theme components, subpage banners, responsive styles
 ├── assets/
 │   ├── finovision-mark.svg  # Scalable vector logo mark
 │   ├── finoza_review_img.jpg# Financial audit & spreadsheets review photo
 │   └── finoza_team_img.jpg  # Advisory team collaborative meeting photo
+├── sitemap.xml              # XML Sitemap with clean canonical URLs
+├── robots.txt               # Crawler directives pointing to finovision.ae
+├── vercel.json              # Vercel deployment configuration
+├── _redirects               # Netlify/Cloudflare redirects
+├── netlify.toml             # Netlify pretty_urls configuration
+├── .htaccess                # Apache/cPanel rewrite rules
 └── docs/
-    ├── ARCHITECTURE.md      # Technical architecture, DOM structure, and script lifecycle
-    ├── STYLE_GUIDE.md       # Visual tokens, typography scale, and CSS conventions
-    ├── CONTENT_SPECIFICATION.md # Verified business facts, credentials, and legal profile
+    ├── SEO_GEO_STRATEGY.md  # Detailed SEO, GEO tags, keywords, and local citations strategy
+    ├── ARCHITECTURE.md      # Technical architecture, DOM structure, script lifecycle
+    ├── STYLE_GUIDE.md       # Visual tokens, typography scale, CSS conventions
+    ├── CONTENT_SPECIFICATION.md # Verified business facts, credentials, legal profile
     └── ...                  # Client-supplied reference documents
 ```
 
@@ -75,14 +87,16 @@ finovision/
    - Skip to main content link (`.skip-link`) as the first focusable element on every page.
    - Visible focus indicators (`:focus-visible`) for keyboard navigation.
    - Paired `.sr-only` labels on form controls with appropriate `autocomplete` attributes.
-   - Zero emojis in all HTML files.
+   - Zero emojis across all HTML, CSS, and JS files.
 
-2. **SEO & Structured Data**:
-   - Unique title tags, meta descriptions, and Open Graph / Twitter Card tags on every page.
-   - Schema.org `AccountingService` JSON-LD microdata on `index.html`.
+2. **Detailed SEO & GEO Targeting**:
+   - Canonical link tags to `https://finovision.ae/...` on every page.
+   - Geolocation meta tags targeting Sharjah Media City (`AE-SH`, coordinates `25.3223;55.5136`).
+   - Schema.org JSON-LD microdata: `AccountingService`, `LocalBusiness`, `BreadcrumbList`, and `FAQPage`.
+   - Open Graph & Twitter Card social previews.
 
 3. **Performance Optimization**:
-   - Zero runtime framework dependencies.
+   - Zero runtime framework dependencies (pure HTML, Vanilla CSS, Vanilla JavaScript).
    - Lazy-loaded (`loading="lazy"`), async-decoded (`decoding="async"`) images with explicit width and height.
 
 ---
@@ -99,27 +113,17 @@ python3 -m http.server 4173
 npx serve -l 4173
 ```
 
-Open `http://localhost:4173` in your browser.
-
-Validate JavaScript syntax:
-
-```bash
-node -c app.js
-```
+Visit in your browser:
+- `http://localhost:4173/`
+- `http://localhost:4173/about`
+- `http://localhost:4173/services`
+- `http://localhost:4173/vat-services`
+- `http://localhost:4173/contact`
 
 ---
 
 ## Deployment Guide
 
-Static buildless deployment ready for:
-- **Vercel**: Import repository, framework preset *Other*, build command *blank*, output directory `./`.
-- **Netlify**: Connect repo, build command *blank*, publish directory `.`.
-- **GitHub Pages / Cloudflare Pages**: Deploy from `main` branch root.
-
----
-
-## Documentation Suite
-
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — Multi-page structure and DOM lifecycle
-- [docs/STYLE_GUIDE.md](docs/STYLE_GUIDE.md) — Emerald & Alabaster design tokens and typography
-- [docs/CONTENT_SPECIFICATION.md](docs/CONTENT_SPECIFICATION.md) — Verified client profile, credentials, and services breakdown
+- **Vercel**: Push to GitHub or run `vercel`. `vercel.json` automatically manages clean URLs and domain 301 redirects.
+- **Netlify**: Connect repository. `netlify.toml` and `_redirects` automatically enforce pretty URLs and domain canonicalization.
+- **cPanel / Apache**: Upload all files to `public_html/`. `.htaccess` automatically manages HTTPS, domain redirects, and clean URLs.

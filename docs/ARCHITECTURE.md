@@ -1,18 +1,20 @@
 # Technical Architecture & Multi-Page Standards
 
-This document describes the multi-page structure, DOM landmarks, shared CSS modules, and accessibility baseline for the Finovision corporate website.
+This document describes the multi-page structure, DOM landmarks, shared CSS modules, clean URL routing, and accessibility baseline for the Finovision corporate website.
 
 ---
 
-## 1. Page Hierarchy & URLs
+## 1. Clean URLs & Page Hierarchy
 
-| File | Page Title | Primary Purpose & Content |
-| :--- | :--- | :--- |
-| `index.html` | Home | Advisory Compass interactive diagram, practice summary, core metrics, CTA |
-| `about.html` | About Us | Company profile, Vision, Mission, Core Values, Leadership qualifications |
-| `services.html` | Services | Complete consultancy catalog and value-added software solutions |
-| `vat-services.html` | VAT Services | Specialized flyer breakdown: 6 compliance pillars, PwC/ATT certification |
-| `contact.html` | Contact Us | Direct hotline, email, office location, business hours, inquiry form, FAQ |
+All public routes hide `.html` extensions. The application uses canonical `https://finovision.ae` as the primary domain:
+
+| Clean Public URL | Internal Source File | Directory Fallback | Primary Purpose & Content |
+| :--- | :--- | :--- | :--- |
+| `https://finovision.ae/` | `index.html` | `/index.html` | Home: Advisory Compass interactive diagram, practice summary, core metrics, CTA |
+| `https://finovision.ae/about` | `about.html` | `about/index.html` | About Us: Company profile, Vision, Mission, Core Values, Leadership qualifications |
+| `https://finovision.ae/services` | `services.html` | `services/index.html` | Services: Complete consultancy catalog and value-added software solutions |
+| `https://finovision.ae/vat-services` | `vat-services.html` | `vat-services/index.html` | VAT Services: Specialized flyer breakdown: 6 compliance pillars, PwC/ATT certification |
+| `https://finovision.ae/contact` | `contact.html` | `contact/index.html` | Contact Us: Direct hotline, email, office location, business hours, inquiry form, FAQ |
 
 ---
 
@@ -29,7 +31,7 @@ Every page implements the following standardized layout structure:
    - Semantic `<header class="site-header" role="banner">`.
    - SVG brand mark with text lockup.
    - Mobile navigation toggle `<button class="menu-toggle" aria-expanded="false" aria-label="Open navigation menu">`.
-   - Primary navigation links with `class="active"` on the current page.
+   - Primary clean URL navigation links (`/`, `/about`, `/services`, `/vat-services`, `/contact`).
    - Header contact pill with clickable phone number (`tel:+971503010675`) and CTA button.
 
 3. **Main Content Container**:
@@ -48,16 +50,27 @@ Every page implements the following standardized layout structure:
 - Operates in strict mode (`'use strict'`).
 - Executed on `DOMContentLoaded`.
 - Shared across all pages:
-  - Accessible mobile drawer toggle with click-outside and `Escape` key capture.
-  - IntersectionObserver scroll-reveal engine.
-  - Contact and consultation form submission handler with validation and status feedback.
+  - **Dynamic Clean Path Active Link Matcher**: Automatically inspects `window.location.pathname`, strips trailing slashes and `.html` extensions, and adds the `.active` class to the appropriate navigation link.
+  - **Accessible Mobile Drawer**: Handles toggle, focus traps, outside click dismiss, and `Escape` key close.
+  - **IntersectionObserver Engine**: Automatically reveals elements with `.reveal` as they scroll into view.
+  - **Consultation Form Handler**: Asynchronously validates inputs and displays live accessible confirmation without page reload.
 
 ---
 
-## 4. Coding Standards Compliance Checklist
+## 4. Multi-Platform Clean URL & Domain Routing
+
+- **Vercel (`vercel.json`)**: Enforces `cleanUrls: true` and 301 host-matching redirects from `finovision.net` and `www.*` to `https://finovision.ae`.
+- **Netlify & Cloudflare (`_redirects` & `netlify.toml`)**: Enforces `pretty_urls = true` and 301 wildcard redirects from `finovision.net/*` to `https://finovision.ae/:splat`.
+- **Apache / cPanel / LiteSpeed (`.htaccess`)**: Strips `.html` requests via `mod_rewrite` and redirects `finovision.net` traffic to `https://finovision.ae`.
+- **Static Server Fallback**: Subdirectories (`about/index.html`, `services/index.html`, etc.) ensure clean directory loading on any static host or local server.
+
+---
+
+## 5. Coding Standards Compliance Checklist
 
 - [x] **No Emojis**: All decorative and informational markers use inline SVG vectors or standard typographical punctuation.
 - [x] **Semantic Landmarks**: Standard HTML5 landmarks (`banner`, `main`, `contentinfo`, `section`, `article`, `details`).
 - [x] **Keyboard Accessibility**: Visible focus states (`:focus-visible`), skip-link, and accessible keyboard navigation in mobile menu.
 - [x] **Form Labels**: Every input field includes paired `.sr-only` accessibility labels and modern `autocomplete` attributes.
 - [x] **Image Loading**: All images specify `loading="lazy"`, `decoding="async"`, and explicit dimensions to avoid CLS.
+- [x] **SEO & GEO Standards**: Canonical tags to `https://finovision.ae`, Sharjah Media City GEO coordinates, Schema.org JSON-LD structured data.
