@@ -1465,6 +1465,16 @@ body.finoza {
   transform: translateX(3px);
 }
 
+/* Calculator Disclaimer */
+.finoza .calc-disclaimer {
+  margin: 10px 0 0;
+  font-size: 0.68rem;
+  color: #60796e;
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
 /* A service index replaces the familiar centered card deck. */
 .finoza .finoza-services { background: #f7faf7; }
 .finoza .services-head { max-width: none; margin-bottom: 50px; text-align: left; display: grid; grid-template-columns: 1fr .7fr; gap: 50px; align-items: end; }
@@ -1518,20 +1528,36 @@ body.finoza {
   .finoza .hero-btn-row .button-finoza,
   .finoza .hero-btn-row .hero-text-link { width: 100%; justify-content: center; text-align: center; }
   .finoza .hero-location { gap: 10px 18px; margin-top: 28px; }
-  .finoza .calc-header { padding: 18px 16px 14px; }
-  .finoza .calc-body { padding: 16px; }
+  .finoza .calc-header { padding: 16px 14px 12px; }
+  .finoza .calc-header h3 { font-size: 1.15rem; }
+  .finoza .calc-header p { font-size: 0.74rem; }
+  .finoza .calc-body { padding: 14px; gap: 14px; }
+  .finoza .calc-toggle-btn { padding: 8px 10px; font-size: 0.74rem; }
+  .finoza .slider-display { font-size: 0.86rem; }
+  .finoza .slider-preset-row { flex-wrap: wrap; gap: 4px; }
+  .finoza .preset-pill { flex: 1 1 45%; padding: 5px 6px; font-size: 0.64rem; }
+  .finoza .calc-margin-pills { gap: 4px; }
+  .finoza .margin-pill { padding: 6px 4px; font-size: 0.7rem; }
+  .finoza .calc-results-card { padding: 14px 12px; }
+  .finoza .result-amount { font-size: 1.35rem; }
+  .finoza .result-status-badge { font-size: 0.56rem; padding: 2px 7px; }
   .finoza .results-sub-grid { grid-template-columns: 1fr; gap: 10px; }
   .finoza .sub-result-block:first-child { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.12); padding-right: 0; padding-bottom: 10px; }
-  .finoza .calc-footer { flex-direction: column; align-items: stretch; text-align: center; gap: 10px; padding: 14px 16px; }
+  .finoza .calc-footer { flex-direction: column; align-items: stretch; text-align: center; gap: 10px; padding: 14px 14px; }
   .finoza .calc-cta-btn { justify-content: center; width: 100%; }
-  .finoza .slider-preset-row { flex-wrap: wrap; }
-  .finoza .preset-pill { flex: 1 1 45%; }
   .finoza .calc-float-pill { position: static; margin-bottom: 10px; width: 100%; justify-content: center; }
+  .finoza .calc-disclaimer { font-size: 0.65rem; }
 }
 
 @media (max-width: 360px) {
-  .finoza .calc-toggle-btn { padding: 8px 10px; }
-  .finoza .calc-header h3 { font-size: 1.05rem; }
+  .finoza .calc-header { padding: 14px 12px 10px; }
+  .finoza .calc-header h3 { font-size: 1.02rem; }
+  .finoza .calc-body { padding: 12px 10px; }
+  .finoza .calc-toggle-btn { padding: 6px 8px; font-size: 0.68rem; }
+  .finoza .preset-pill { font-size: 0.6rem; padding: 4px 4px; }
+  .finoza .margin-pill { font-size: 0.65rem; padding: 5px 2px; }
+  .finoza .calc-results-card { padding: 12px 10px; }
+  .finoza .result-amount { font-size: 1.25rem; }
 }
 
 /* ========================================================

@@ -188,46 +188,110 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 4. CONSULTATION REQUEST FORM HANDLING
+  // 4. CONSULTATION REQUEST FORM HANDLING (PRODUCTION DISPATCH)
   // ==========================================
   const forms = document.querySelectorAll('.contact-form');
 
   forms.forEach((form) => {
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       const submitBtn = form.querySelector('button[type="submit"]');
       const statusElement = form.querySelector('.form-status');
       const nameInput = form.querySelector('input[name="fullName"], input[type="text"]');
       const emailInput = form.querySelector('input[name="email"], input[type="email"]');
+      const phoneInput = form.querySelector('input[name="phone"], input[type="tel"]');
 
-      if (!nameInput?.value.trim() || !emailInput?.value.trim()) {
+      const nameVal = nameInput ? nameInput.value.trim() : '';
+      const emailVal = emailInput ? emailInput.value.trim() : '';
+      const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+
+      // Basic validation
+      if (!nameVal || !emailVal) {
         if (statusElement) {
-          statusElement.textContent = 'Please fill in all required contact details.';
+          statusElement.textContent = 'Please fill in your name and corporate email address.';
           statusElement.style.color = '#ef4444';
           statusElement.style.fontWeight = '600';
         }
         return;
       }
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.style.opacity = '0.7';
+      // Email format check
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailVal)) {
+        if (statusElement) {
+          statusElement.textContent = 'Please provide a valid corporate email format.';
+          statusElement.style.color = '#ef4444';
+          statusElement.style.fontWeight = '600';
+        }
+        return;
       }
 
-      // Simulate instantaneous asynchronous submission receipt
-      setTimeout(() => {
-        if (statusElement) {
-          statusElement.textContent = '✓ Consultation request received. A qualified Finovision advisor will contact you within 1 business day.';
-          statusElement.style.color = '#10b981';
-          statusElement.style.fontWeight = '700';
+      const originalBtnHTML = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.75';
+        submitBtn.innerHTML = '<span>Submitting Consultation Request...</span>';
+      }
+
+      if (statusElement) {
+        statusElement.textContent = 'Transmitting your inquiry securely to our advisory desk...';
+        statusElement.style.color = '#a6d8c1';
+        statusElement.style.fontWeight = '500';
+      }
+
+      const targetAction = form.getAttribute('action') && form.getAttribute('action') !== '#'
+        ? form.getAttribute('action')
+        : 'https://formsubmit.co/ajax/info@finovisionuae.com';
+
+      const formData = new FormData(form);
+      if (!formData.has('_subject')) {
+        formData.append('_subject', 'New Finovision UAE Client Consultation Inquiry');
+      }
+
+      try {
+        const response = await fetch(targetAction, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          if (statusElement) {
+            statusElement.innerHTML = '✓ Consultation request received. A qualified Finovision advisor will contact you within 1 business day.<br><span style="font-size: 0.85em; opacity: 0.9;">Urgent assistance? <a href="https://wa.me/971503010675?text=Hello%20Finovision,%20I%20just%20submitted%20a%20consultation%20request%20on%20your%20website" target="_blank" rel="noopener noreferrer" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">Direct line WhatsApp: +971 50 301 0675 →</a></span>';
+            statusElement.style.color = '#10b981';
+            statusElement.style.fontWeight = '600';
+          }
+          form.reset();
+        } else {
+          throw new Error('Server returned ' + response.status);
         }
-        form.reset();
+      } catch (err) {
+        // Fallback: Open prefilled mail client so lead is never lost
+        const mailtoSubject = encodeURIComponent('Finovision Advisory Consultation Request - ' + nameVal);
+        const mailtoBody = encodeURIComponent(
+          'Dear Finovision Advisory Team,\n\nI would like to request a corporate consultation.\n\n' +
+          'Name: ' + nameVal + '\n' +
+          'Email: ' + emailVal + '\n' +
+          'Phone: ' + (phoneVal || 'N/A') + '\n\n' +
+          'Sent via Finovision UAE Web Portal'
+        );
+        const mailtoUrl = 'mailto:info@finovisionuae.com?subject=' + mailtoSubject + '&body=' + mailtoBody;
+
+        if (statusElement) {
+          statusElement.innerHTML = 'Direct email dispatch opened. <a href="' + mailtoUrl + '" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">Click here to send directly to info@finovisionuae.com</a> or WhatsApp <a href="https://wa.me/971503010675" target="_blank" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">+971 50 301 0675</a>.';
+          statusElement.style.color = '#34d399';
+        }
+        window.location.href = mailtoUrl;
+      } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.style.opacity = '1';
+          submitBtn.innerHTML = originalBtnHTML;
         }
-      }, 350);
+      }
     });
   });
 
@@ -327,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // 4. E-Invoicing Phase 2 Status
-      if (einvStatusDisplay) einvStatusDisplay.textContent = 'Phase 2 Mandate';
+      if (einvStatusDisplay) einvStatusDisplay.textContent = 'Phase 2 Preparation';
       if (einvNoteDisplay) einvNoteDisplay.textContent = 'PEPPOL / XML format readiness required for B2B.';
     };
 

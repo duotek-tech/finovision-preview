@@ -29,7 +29,7 @@ Multi-page corporate website for **Finovision Business Solutions LLC**, an accre
 - **Jurisdiction**: Sharjah Media City (Shams), Sharjah, United Arab Emirates
 - **Commercial License**: #1804056
 - **Telephone / WhatsApp**: `+971 50 301 0675` (International format)
-- **Official Email**: `admin@finovision.net`
+- **Official Email**: `info@finovisionuae.com`
 - **Hours of Operation**:
   - Sunday – Thursday: 9:00 AM – 6:00 PM
   - Saturday: By appointment
