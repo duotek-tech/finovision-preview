@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 3. SCROLL REVEAL OBSERVER
+  // 3. UNIFIED MODERN SCROLL & REVEAL ENGINE
   // ==========================================
   if ('IntersectionObserver' in window) {
     const revealElements = document.querySelectorAll('.reveal');
@@ -174,8 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       },
       {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.08,
+        rootMargin: '0px 0px -30px 0px',
       }
     );
 
@@ -185,6 +185,43 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach((el) => {
       el.classList.add('visible');
     });
+  }
+
+  // Subtle Executive Hero Scroll Depth (60fps requestAnimationFrame)
+  const heroSection = document.querySelector('.finoza-hero');
+  const heroLeft = document.querySelector('.hero-left');
+  const heroCalcWrap = document.querySelector('.finoza-calculator-wrap');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (heroSection && heroLeft && heroCalcWrap && !prefersReducedMotion && window.innerWidth > 900) {
+    let ticking = false;
+    let heroVisible = true;
+
+    const heroObserver = new IntersectionObserver((entries) => {
+      heroVisible = entries[0].isIntersecting;
+    }, { threshold: 0 });
+    heroObserver.observe(heroSection);
+
+    window.addEventListener('scroll', () => {
+      if (!heroVisible || ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const scrolled = window.scrollY;
+        if (scrolled < 700) {
+          const textShift = (scrolled * 0.08).toFixed(1);
+          const calcShift = (scrolled * 0.04).toFixed(1);
+          const opacity = Math.max(0, 1 - scrolled / 980).toFixed(3);
+          heroLeft.style.transform = `translate3d(0, ${textShift}px, 0)`;
+          heroLeft.style.opacity = opacity;
+          heroCalcWrap.style.transform = `translate3d(0, ${calcShift}px, 0)`;
+        } else {
+          heroLeft.style.transform = '';
+          heroLeft.style.opacity = '';
+          heroCalcWrap.style.transform = '';
+        }
+        ticking = false;
+      });
+    }, { passive: true });
   }
 
   // ==========================================
