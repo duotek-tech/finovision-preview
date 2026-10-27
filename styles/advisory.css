@@ -992,6 +992,14 @@ body.finoza {
   overflow-wrap: break-word;
 }
 .finoza .hero-left h1 span { color: var(--finoza-green); }
+.finoza .hero-audience-line {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--finoza-forest);
+  margin: -10px 0 16px;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
 .finoza .hero-desc { max-width: 590px; font-size: 1.1rem; }
 .finoza .hero-btn-row { flex-wrap: wrap; }
 .finoza .hero-text-link {
@@ -1512,6 +1520,7 @@ body.finoza {
 @media (max-width: 768px) {
   .finoza .finoza-hero { padding-top: 110px; }
   .finoza .hero-left h1 { font-size: clamp(2.4rem, 11vw, 4.2rem); line-height: 1.02; }
+  .finoza .hero-audience-line { font-size: 1.02rem; margin: -4px 0 12px; }
   .finoza .hero-desc { font-size: 1rem; }
   .finoza .finoza-calculator-wrap { max-width: 100%; }
   .finoza .calc-float-pill { top: -12px; right: 8px; font-size: 0.6rem; padding: 4px 10px; }
