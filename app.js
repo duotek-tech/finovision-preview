@@ -15,6 +15,61 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
+  // 0. SITE-WIDE PRELOADER & NAVIGATION PROGRESS BAR
+  // ==========================================
+  const preloader = document.getElementById('site-preloader');
+  if (preloader) {
+    const dismissPreloader = () => {
+      preloader.classList.add('loaded');
+      setTimeout(() => {
+        if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+      }, 450);
+    };
+
+    if (document.readyState === 'complete') {
+      dismissPreloader();
+    } else {
+      window.addEventListener('load', dismissPreloader);
+      // Failsafe timeout so screen is never trapped
+      setTimeout(dismissPreloader, 650);
+    }
+  }
+
+  // Top Navigation Progress Bar on Internal Link Navigation
+  let topLoader = document.getElementById('site-top-loader');
+  if (!topLoader) {
+    topLoader = document.createElement('div');
+    topLoader.id = 'site-top-loader';
+    document.body.appendChild(topLoader);
+  }
+
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (
+      href &&
+      !href.startsWith('#') &&
+      !href.startsWith('mailto:') &&
+      !href.startsWith('tel:') &&
+      !href.startsWith('javascript:') &&
+      anchor.target !== '_blank' &&
+      !e.ctrlKey &&
+      !e.metaKey &&
+      !e.shiftKey
+    ) {
+      topLoader.className = 'loading';
+    }
+  });
+
+  window.addEventListener('pageshow', () => {
+    if (topLoader) {
+      topLoader.className = 'done';
+      setTimeout(() => { topLoader.className = ''; }, 350);
+    }
+  });
+
+  // ==========================================
   // 1. ACTIVE NAVIGATION LINK MATCHING
   // ==========================================
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
@@ -276,13 +331,33 @@ document.addEventListener('DOMContentLoaded', () => {
       if (einvNoteDisplay) einvNoteDisplay.textContent = 'PEPPOL / XML format readiness required for B2B.';
     };
 
+    const resultsCard = calcWrap.querySelector('.calc-results-card');
+    let calcTransitionTimer = null;
+
+    const triggerRecalculation = (immediate = false) => {
+      if (immediate || !resultsCard) {
+        updateCalculator();
+        return;
+      }
+
+      if (calcTransitionTimer) clearTimeout(calcTransitionTimer);
+      resultsCard.classList.add('is-calculating');
+
+      calcTransitionTimer = setTimeout(() => {
+        updateCalculator();
+        setTimeout(() => {
+          resultsCard.classList.remove('is-calculating');
+        }, 30);
+      }, 120);
+    };
+
     // Event: Jurisdiction buttons
     jurisdictionBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         jurisdictionBtns.forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
         currentJurisdiction = btn.getAttribute('data-jurisdiction') || 'mainland';
-        updateCalculator();
+        triggerRecalculation(false);
       });
     });
 
@@ -294,7 +369,11 @@ document.addEventListener('DOMContentLoaded', () => {
           const val = parseFloat(p.getAttribute('data-preset'));
           p.classList.toggle('active', Math.abs(val - currentRevenue) < 25000);
         });
-        updateCalculator();
+        triggerRecalculation(true);
+      });
+
+      revenueSlider.addEventListener('change', () => {
+        triggerRecalculation(false);
       });
     }
 
@@ -306,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const val = parseFloat(pill.getAttribute('data-preset')) || 1500000;
         currentRevenue = val;
         if (revenueSlider) revenueSlider.value = String(val);
-        updateCalculator();
+        triggerRecalculation(false);
       });
     });
 
@@ -316,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
         marginBtns.forEach((p) => p.classList.remove('active'));
         pill.classList.add('active');
         currentMargin = parseFloat(pill.getAttribute('data-margin')) || 0.20;
-        updateCalculator();
+        triggerRecalculation(false);
       });
     });
 

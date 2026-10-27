@@ -1286,12 +1286,55 @@ body.finoza {
 
 /* Results Box */
 .finoza .calc-results-card {
+  position: relative;
+  overflow: hidden;
   padding: 16px 18px;
   background: linear-gradient(135deg, #073c34 0%, #0a4f45 100%);
   border-radius: 14px;
   color: #ffffff;
   box-shadow: 0 10px 24px rgba(7, 60, 52, 0.16);
-  transition: all 0.25s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+/* Recalculation Top Shimmer Beam */
+.finoza .calc-results-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #22c55e, #a6d8c1, #ffffff, transparent);
+  opacity: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+.finoza .calc-results-card.is-calculating::before {
+  opacity: 1;
+  animation: calcScanShimmer 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes calcScanShimmer {
+  0% { left: -100%; opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Smooth micro-fade for values when recalculating */
+.finoza .calc-results-card .result-amount,
+.finoza .calc-results-card .result-status-badge,
+.finoza .calc-results-card .result-note,
+.finoza .calc-results-card .result-sub-amount {
+  transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), filter 0.18s ease;
+  will-change: opacity, transform;
+}
+
+.finoza .calc-results-card.is-calculating .result-amount,
+.finoza .calc-results-card.is-calculating .result-status-badge,
+.finoza .calc-results-card.is-calculating .result-sub-amount {
+  opacity: 0.35;
+  transform: translateY(2px) scale(0.99);
+  filter: blur(0.4px);
 }
 
 /* Primary Top Tax Highlight */
