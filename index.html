@@ -228,24 +228,27 @@
 
                 <!-- Live Results Output Box -->
                 <div class="calc-results-card" aria-live="polite">
-                  <div class="results-grid">
-                    <!-- Tax Liability Result -->
-                    <div class="result-block primary-block">
+                  <!-- Primary Top Tax Result Row -->
+                  <div class="result-top-tax">
+                    <div class="tax-header-row">
                       <span class="result-label">Estimated UAE Corporate Tax</span>
-                      <strong class="result-amount" id="tax-amount-display">AED 0</strong>
                       <span class="result-status-badge under-threshold" id="tax-status-badge">0% Under AED 375K Threshold</span>
-                      <span class="result-note" id="tax-note-display">Statutory 0% profit threshold applied.</span>
                     </div>
+                    <strong class="result-amount" id="tax-amount-display">AED 0</strong>
+                    <span class="result-note" id="tax-note-display">Statutory 0% profit threshold applied.</span>
+                  </div>
 
+                  <!-- Secondary Compliance Sub-Grid (VAT & E-Invoicing) -->
+                  <div class="results-sub-grid">
                     <!-- VAT Registration Status -->
-                    <div class="result-block">
-                      <span class="result-label">UAE VAT Status</span>
+                    <div class="sub-result-block">
+                      <span class="result-label">UAE VAT Compliance</span>
                       <strong class="result-sub-amount" id="vat-status-display">Mandatory Registration</strong>
                       <span class="result-note" id="vat-note-display">Quarterly returns required via EmaraTax.</span>
                     </div>
 
                     <!-- Federal E-Invoicing Status -->
-                    <div class="result-block">
+                    <div class="sub-result-block">
                       <span class="result-label">Federal E-Invoicing</span>
                       <strong class="result-sub-amount" id="einv-status-display">Phase 2 Mandate</strong>
                       <span class="result-note" id="einv-note-display">PEPPOL / XML data format readiness.</span>
