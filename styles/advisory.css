@@ -835,16 +835,8 @@ body.finoza {
   gap: 4px;
 }
 .finoza-footer .footer-copyright small {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
-}
-.finoza-footer .footer-domain {
-  font-size: 0.74rem;
-  color: rgba(255, 255, 255, 0.45);
-}
-.finoza-footer .footer-domain a {
-  color: var(--finoza-green);
-  text-decoration: underline;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
 }
 .finoza-footer .footer-bottom-accent {
   display: flex;
