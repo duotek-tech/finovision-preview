@@ -39,7 +39,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 2. MOBILE NAVIGATION DRAWER
+  // 2. FLOATING NAVIGATION ON SCROLL
+  // ==========================================
+  const siteHeader = document.querySelector('.site-header');
+  if (siteHeader) {
+    const onScroll = () => {
+      if (window.scrollY > 25) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // Run immediately on page load
+  }
+
+  // ==========================================
+  // 3. MOBILE NAVIGATION DRAWER
   // ==========================================
   const menuButton = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');

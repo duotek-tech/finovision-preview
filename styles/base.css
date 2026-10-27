@@ -76,8 +76,25 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .button svg { width: 17px; height: 17px; }
 .button-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
-.site-header { position: absolute; z-index: 50; top: 0; left: 0; width: 100%; }
-.nav { height: 92px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.site-header { 
+  position: fixed; 
+  z-index: 1000; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav { 
+  height: 92px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 28px; 
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
 .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.02em; }
 .brand-mark { width: 54px; height: 40px; flex: 0 0 auto; }
 .brand-text { display: flex; flex-direction: column; line-height: 1; }
