@@ -186,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const profitDisplay = calcWrap.querySelector('#profit-val-display');
     const taxAmountDisplay = calcWrap.querySelector('#tax-amount-display');
     const taxStatusBadge = calcWrap.querySelector('#tax-status-badge');
+    const taxNoteDisplay = calcWrap.querySelector('#tax-note-display');
     const vatStatusDisplay = calcWrap.querySelector('#vat-status-display');
     const vatNoteDisplay = calcWrap.querySelector('#vat-note-display');
     const einvStatusDisplay = calcWrap.querySelector('#einv-status-display');
@@ -220,14 +221,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentJurisdiction === 'freezone') {
         // Designated Free Zone Qualifying Income Relief (0%)
         taxLiability = 0;
-        if (taxAmountDisplay) taxAmountDisplay.textContent = 'AED 0 (0% Rate)';
+        if (taxAmountDisplay) taxAmountDisplay.textContent = 'AED 0';
         if (taxStatusBadge) {
           taxStatusBadge.className = 'result-status-badge freezone-relief';
+          taxStatusBadge.textContent = '0% Qualifying Income Relief';
+        }
+        if (taxNoteDisplay) {
           const potentialTax = Math.max(0, (estimatedProfit - THRESHOLD) * 0.09);
           if (potentialTax > 0) {
-            taxStatusBadge.textContent = `0% Free Zone Relief · Saving ${formatAED(potentialTax)}`;
+            taxNoteDisplay.textContent = `Free Zone relief saves ${formatAED(potentialTax)}.`;
           } else {
-            taxStatusBadge.textContent = 'Designated Free Zone Qualifying Income (0%)';
+            taxNoteDisplay.textContent = 'Qualifying Free Zone Persons enjoy 0% CT.';
           }
         }
       } else {
@@ -237,14 +241,20 @@ document.addEventListener('DOMContentLoaded', () => {
           if (taxAmountDisplay) taxAmountDisplay.textContent = 'AED 0';
           if (taxStatusBadge) {
             taxStatusBadge.className = 'result-status-badge under-threshold';
-            taxStatusBadge.textContent = 'Under AED 375,000 Threshold · 0% Rate';
+            taxStatusBadge.textContent = '0% Under AED 375K Threshold';
+          }
+          if (taxNoteDisplay) {
+            taxNoteDisplay.textContent = 'Statutory 0% profit threshold applied.';
           }
         } else {
           taxLiability = (estimatedProfit - THRESHOLD) * 0.09;
           if (taxAmountDisplay) taxAmountDisplay.textContent = formatAED(taxLiability);
           if (taxStatusBadge) {
             taxStatusBadge.className = 'result-status-badge taxable';
-            taxStatusBadge.textContent = `9% on excess over AED 375K (${formatAED(estimatedProfit - THRESHOLD)})`;
+            taxStatusBadge.textContent = 'Standard 9% Corporate Tax';
+          }
+          if (taxNoteDisplay) {
+            taxNoteDisplay.textContent = `Taxable excess: ${formatAED(estimatedProfit - THRESHOLD)}.`;
           }
         }
       }
