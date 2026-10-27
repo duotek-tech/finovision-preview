@@ -935,3 +935,282 @@ body.finoza {
   .finoza .node-accounting, .finoza .node-vat { left: -7px; }
   .finoza .node-controls, .finoza .node-systems { right: -7px; }
 }
+
+/* ========================================================
+   MULTI-PAGE SUBPAGE ARCHITECTURE
+   ======================================================== */
+.finoza .nav-links a.active {
+  color: var(--finoza-green);
+  font-weight: 800;
+  position: relative;
+}
+.finoza .nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--finoza-green);
+  border-radius: 99px;
+}
+
+.finoza .subpage-hero {
+  background: var(--finoza-mint);
+  padding: 160px 0 80px;
+  position: relative;
+  border-bottom: 1px solid var(--finoza-border);
+}
+
+.finoza .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  font-weight: 750;
+  color: var(--finoza-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+.finoza .breadcrumb a {
+  color: var(--finoza-green);
+  transition: color 0.2s;
+}
+.finoza .breadcrumb a:hover {
+  color: var(--finoza-forest);
+}
+
+.finoza .subpage-hero h1 {
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
+  color: var(--finoza-forest);
+  margin: 0 0 16px;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+.finoza .subpage-hero p {
+  font-size: 1.15rem;
+  color: var(--finoza-muted);
+  max-width: 720px;
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* Values & Mission Cards */
+.finoza .values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 50px;
+}
+.finoza .value-card {
+  background: white;
+  border: 1px solid var(--finoza-border);
+  border-radius: 18px;
+  padding: 36px 30px;
+  box-shadow: 0 10px 30px rgba(7, 60, 52, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.finoza .value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(7, 60, 52, 0.08);
+}
+.finoza .value-card-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #dff4e8;
+  color: var(--finoza-forest);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.finoza .value-card h3 {
+  font-size: 1.45rem;
+  color: var(--finoza-forest);
+  margin: 0 0 14px;
+}
+.finoza .value-card p {
+  font-size: 0.94rem;
+  color: var(--finoza-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Full Services Grid */
+.finoza .services-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 48px;
+}
+.finoza .catalog-card {
+  background: white;
+  border: 1px solid var(--finoza-border);
+  border-radius: 20px;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.finoza .catalog-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--finoza-green);
+  box-shadow: 0 20px 50px rgba(7, 60, 52, 0.08);
+}
+.finoza .catalog-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+.finoza .catalog-card-head .service-index {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: var(--finoza-green);
+}
+.finoza .catalog-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #eef6f0;
+  color: var(--finoza-forest);
+}
+.finoza .catalog-card h3 {
+  font-size: 1.6rem;
+  color: var(--finoza-forest);
+  margin: 0 0 14px;
+  letter-spacing: -0.03em;
+}
+.finoza .catalog-card p {
+  font-size: 0.96rem;
+  color: var(--finoza-muted);
+  line-height: 1.65;
+  margin: 0 0 24px;
+  flex: 1;
+}
+.finoza .catalog-deliverables {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: grid;
+  gap: 10px;
+}
+.finoza .catalog-deliverables li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: #2b403a;
+  line-height: 1.45;
+}
+.finoza .catalog-deliverables li svg {
+  width: 16px;
+  height: 16px;
+  color: var(--finoza-green);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* VAT Specification Table / Checklist */
+.finoza .vat-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.finoza .vat-card-feature {
+  background: white;
+  border: 1px solid var(--finoza-border);
+  border-radius: 18px;
+  padding: 34px 28px;
+}
+.finoza .vat-card-feature .spec-badge {
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--finoza-green);
+  display: block;
+  margin-bottom: 12px;
+}
+.finoza .vat-card-feature h3 {
+  font-size: 1.35rem;
+  color: var(--finoza-forest);
+  margin: 0 0 12px;
+}
+.finoza .vat-card-feature p {
+  font-size: 0.92rem;
+  color: var(--finoza-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Contact Info Blocks */
+.finoza .contact-cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 50px;
+}
+.finoza .contact-info-card {
+  background: white;
+  border: 1px solid var(--finoza-border);
+  border-radius: 18px;
+  padding: 32px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+.finoza .contact-info-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: #eef6f0;
+  color: var(--finoza-green);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.finoza .contact-info-card h4 {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--finoza-muted);
+  margin: 0 0 6px;
+}
+.finoza .contact-info-card strong {
+  display: block;
+  font-size: 1.15rem;
+  color: var(--finoza-forest);
+  margin-bottom: 4px;
+}
+.finoza .contact-info-card p {
+  font-size: 0.86rem;
+  color: var(--finoza-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+.finoza .contact-info-card a {
+  color: var(--finoza-forest);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.finoza .contact-info-card a:hover {
+  color: var(--finoza-green);
+}
+
+@media (max-width: 960px) {
+  .finoza .values-grid { grid-template-columns: 1fr; }
+  .finoza .services-catalog-grid { grid-template-columns: 1fr; }
+  .finoza .vat-matrix-grid { grid-template-columns: 1fr; }
+  .finoza .contact-cards-row { grid-template-columns: 1fr; }
+}
+
