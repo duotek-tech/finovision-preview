@@ -765,6 +765,35 @@ body.finoza {
   color: var(--finoza-green);
   margin: 0;
 }
+.finoza-footer .footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.finoza-footer .social-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+.finoza-footer .social-icon-btn:hover {
+  transform: translateY(-3px);
+  background: var(--finoza-green);
+  border-color: var(--finoza-green);
+  color: #ffffff;
+}
+.finoza-footer .social-icon-btn svg {
+  width: 17px;
+  height: 17px;
+}
 .finoza-footer .footer-heading {
   margin: 0 0 20px;
   font-size: 0.8rem;
