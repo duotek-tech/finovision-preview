@@ -1,29 +1,27 @@
-# Finovision Website Concepts
+# Finovision Business Solutions LLC — Official Website
 
-Three responsive, scrolling homepage concepts for Finovision Business Solutions LLC.
+Modern, responsive website for Finovision Business Solutions LLC (Sharjah Media City, UAE).
 
-## Pages
+Built using the client-approved Integrated Advisory design direction (clean emerald & ivory palette, connected operational model, executive credentials, and interactive service modules).
 
-- `index.html` — concept selection page
-- `concept-a.html` — Premium Corporate
-- `concept-b.html` — Modern Minimal
-- `concept-c.html` — Modern Advisory
+## Architecture
 
-## Local preview
+- `index.html` — Main website
+- `styles/base.css` — Core design tokens and responsive reset
+- `styles/advisory.css` — Modern Advisory styling and components
+- `app.js` — Mobile navigation toggle, scroll-reveal animations, and contact form handling
+- `assets/` — Brand mark, leadership and advisory photography
 
-From this folder, run:
+## Local Preview
+
+From this directory, run:
 
 ```bash
 python3 -m http.server 4173
 ```
 
-Then open `http://localhost:4173`.
+Then visit [http://localhost:4173](http://localhost:4173) in your browser.
 
-## Vercel
+## Deployment
 
-This is a buildless static site. Import this folder as a Vercel project with no build command and use the project root as the output directory.
-
-## Before client publication
-
-Confirm the current phone, email, address, license information, office hours, service list, professional qualifications and any partner certifications. The consultation forms are intentionally non-submitting concept forms.
-# finovision-preview
+This is a fast, buildless static site with zero external runtime dependencies. It can be deployed directly to Vercel, Netlify, Cloudflare Pages, or GitHub Pages.

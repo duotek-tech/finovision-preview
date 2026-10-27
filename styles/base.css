@@ -95,11 +95,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .site-footer { padding: 46px 0; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.footer-links { display: flex; flex-wrap: wrap; gap: 22px; font-size: .8rem; opacity: .68; }
-.concept-switcher { position: fixed; z-index: 30; right: 18px; bottom: 18px; display: flex; align-items: center; gap: 5px; padding: 6px; border-radius: 999px; background: rgba(8, 12, 14, .9); color: white; backdrop-filter: blur(16px); box-shadow: 0 15px 40px rgba(0,0,0,.2); }
-.concept-switcher a { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: .7rem; font-weight: 800; opacity: .6; }
-.concept-switcher a.active, .concept-switcher a:hover { background: white; color: #101315; opacity: 1; }
-.concept-switcher .overview { width: auto; padding-inline: 12px; }
 
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
 .reveal.visible { opacity: 1; transform: none; }
@@ -132,7 +127,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .vat-points { grid-template-columns: 1fr; }
   .field.full { grid-column: auto; }
   .footer-inner { align-items: flex-start; flex-direction: column; }
-  .concept-switcher { right: 10px; bottom: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
