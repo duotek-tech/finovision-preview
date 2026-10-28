@@ -2047,231 +2047,27 @@ body.finoza {
   .finoza .button-finoza { padding: 12px 18px; font-size: 0.82rem; }
 }
 
-/* Legal Policy & Terms Content Layout: Unified Institutional Document Architecture */
+/* Legal Policy & Terms Content Layout: Expanded Centered Document Architecture */
 .finoza .legal-section {
-  padding: 50px 0 100px;
+  padding: 48px 0 100px;
   background: #fbfaf7;
-  overflow: visible !important;
   position: relative;
 }
 
-.finoza .legal-section .container {
-  overflow: visible;
-}
-
-/* Master Document Shell: Unifies Directory Rail & Content Body into One Cohesive Paper Container */
+/* Master Centered Reading Card */
+.finoza .legal-single-card,
 .finoza .legal-document-shell,
+.finoza .legal-content-card,
 .finoza .legal-grid {
-  display: grid;
-  grid-template-columns: 320px 1fr;
+  display: block;
+  max-width: 980px;
+  margin: 0 auto;
   background: #ffffff;
   border: 1px solid var(--finoza-border);
   border-radius: 22px;
   box-shadow: 0 16px 44px rgba(7, 60, 52, 0.04), 0 2px 8px rgba(7, 60, 52, 0.02);
-  overflow: visible;
-  position: relative;
-  min-height: 100%;
-}
-
-/* Left Sidebar Rail: Spans Full Document Height, Eliminating the Empty Left Void */
-.finoza .legal-sidebar-rail,
-.finoza aside.legal-nav-card {
-  background: #faf9f6;
-  border-right: 1px solid var(--finoza-border);
-  border-top-left-radius: 21px;
-  border-bottom-left-radius: 21px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Sticky Directory Navigation Shell */
-.finoza .legal-sidebar-sticky {
-  position: sticky;
-  top: 96px;
-  padding: 32px 24px;
-  max-height: calc(100vh - 110px);
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(7, 60, 52, 0.2) transparent;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.finoza .legal-sidebar-sticky::-webkit-scrollbar {
-  width: 4px;
-}
-.finoza .legal-sidebar-sticky::-webkit-scrollbar-thumb {
-  background: rgba(7, 60, 52, 0.15);
-  border-radius: 99px;
-}
-
-/* Directory Rail Header */
-.finoza .legal-rail-header {
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--finoza-border);
-}
-.finoza .legal-pill-tag {
-  display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--finoza-green);
-  background: var(--finoza-mint);
-  padding: 3px 9px;
-  border-radius: 999px;
-  margin-bottom: 8px;
-}
-.finoza .legal-nav-title {
-  font-size: 0.96rem;
-  font-weight: 800;
-  color: var(--finoza-forest);
-  margin: 0 0 4px;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-}
-.finoza .legal-nav-subtitle {
-  font-size: 0.77rem;
-  color: var(--finoza-muted);
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* Directory Nav List & Interactive Links */
-.finoza .legal-nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.finoza .legal-nav-link,
-.finoza .legal-nav-list a {
-  font-size: 0.84rem;
-  color: var(--finoza-muted);
-  text-decoration: none;
-  display: grid;
-  grid-template-columns: 24px 1fr;
-  align-items: baseline;
-  gap: 8px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  border-left: 3px solid transparent;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  line-height: 1.4;
-  font-weight: 500;
-}
-.finoza .legal-nav-link .doc-idx {
-  font-size: 0.72rem;
-  font-weight: 750;
-  color: rgba(7, 60, 52, 0.4);
-  letter-spacing: 0.04em;
-  font-variant-numeric: tabular-nums;
-  transition: color 0.2s;
-}
-.finoza .legal-nav-link:hover,
-.finoza .legal-nav-list a:hover {
-  color: var(--finoza-forest);
-  background: rgba(7, 60, 52, 0.04);
-  transform: translateX(3px);
-}
-.finoza .legal-nav-link:hover .doc-idx,
-.finoza .legal-nav-list a:hover .doc-idx {
-  color: var(--finoza-green);
-}
-.finoza .legal-nav-link.active,
-.finoza .legal-nav-list a.active {
-  color: var(--finoza-forest);
-  font-weight: 750;
-  background: #ffffff;
-  border-left-color: var(--finoza-green);
-  box-shadow: 0 2px 8px rgba(7, 60, 52, 0.05);
-}
-.finoza .legal-nav-link.active .doc-idx,
-.finoza .legal-nav-list a.active .doc-idx {
-  color: var(--finoza-green);
-  font-weight: 800;
-}
-
-/* Sidebar Rail Footer / Assistance Card */
-.finoza .legal-rail-footer {
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid var(--finoza-border);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.finoza .legal-assistance-box {
-  background: #ffffff;
-  border: 1px solid var(--finoza-border);
-  border-radius: 12px;
-  padding: 12px 14px;
-}
-.finoza .legal-assistance-header {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.74rem;
-  font-weight: 750;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--finoza-forest);
-  margin-bottom: 4px;
-}
-.finoza .legal-assistance-header svg {
-  stroke: var(--finoza-green);
-}
-.finoza .legal-assistance-box p {
-  font-size: 0.76rem;
-  line-height: 1.45;
-  color: var(--finoza-muted);
-  margin: 0 0 6px;
-}
-.finoza .legal-rail-action {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--finoza-green);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.finoza .legal-rail-action:hover {
-  color: var(--finoza-forest);
-  text-decoration: underline;
-}
-.finoza .legal-print-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 9px 12px;
-  background: transparent;
-  border: 1px solid var(--finoza-border);
-  border-radius: 10px;
-  font-size: 0.78rem;
-  font-weight: 650;
-  color: var(--finoza-forest);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.finoza .legal-print-btn:hover {
-  background: #ffffff;
-  border-color: rgba(7, 60, 52, 0.25);
-  color: var(--finoza-green);
-}
-
-/* Document Reading Body */
-.finoza .legal-content-body,
-.finoza .legal-content-card {
-  background: #ffffff;
-  border: none;
-  border-radius: 0 21px 21px 0;
-  box-shadow: none;
-  padding: clamp(32px, 4vw, 56px) clamp(24px, 4.5vw, 60px) 70px;
+  padding: clamp(32px, 5vw, 64px) clamp(24px, 5.5vw, 68px) 80px;
+  box-sizing: border-box;
 }
 
 /* Article Top Metadata Header */
@@ -2310,54 +2106,166 @@ body.finoza {
   border-radius: 999px;
 }
 
+/* Executive Callout */
+.finoza .legal-callout {
+  background: var(--finoza-mint);
+  border-left: 4px solid var(--finoza-green);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin: 24px 0 32px;
+}
+.finoza .legal-callout p {
+  margin: 0;
+  font-size: 0.94rem;
+  color: var(--finoza-forest);
+  font-weight: 500;
+  line-height: 1.68;
+}
+
+/* Quick Inline Section Navigator (Collapsible Accordion) */
+.finoza .legal-toc-bar {
+  margin: 24px 0 36px;
+}
+.finoza .legal-toc-accordion {
+  background: #faf9f6;
+  border: 1px solid var(--finoza-border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.finoza .legal-toc-accordion[open] {
+  border-color: rgba(0, 176, 116, 0.4);
+  box-shadow: 0 4px 16px rgba(7, 60, 52, 0.04);
+}
+.finoza .legal-toc-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 18px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+.finoza .legal-toc-summary::-webkit-details-marker {
+  display: none;
+}
+.finoza .legal-toc-summary .toc-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--finoza-green);
+  background: var(--finoza-mint);
+  padding: 3px 9px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.finoza .legal-toc-summary .toc-label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--finoza-forest);
+  flex: 1;
+}
+.finoza .legal-toc-summary .toc-arrow {
+  font-size: 0.82rem;
+  color: var(--finoza-muted);
+  transition: transform 0.2s;
+}
+.finoza .legal-toc-accordion[open] .toc-arrow {
+  transform: rotate(180deg);
+  color: var(--finoza-green);
+}
+.finoza .legal-toc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 16px;
+  padding: 16px 18px 20px;
+  border-top: 1px solid rgba(7, 60, 52, 0.08);
+  background: #ffffff;
+}
+.finoza .legal-toc-grid a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--finoza-muted);
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  line-height: 1.35;
+}
+.finoza .legal-toc-grid a:hover {
+  color: var(--finoza-green);
+  background: var(--finoza-mint);
+  transform: translateX(3px);
+}
+.finoza .legal-toc-grid a .t-num {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--finoza-green);
+  font-variant-numeric: tabular-nums;
+}
+
 /* Typography & Headings */
+.finoza .legal-single-card h2,
 .finoza .legal-content-body h2,
 .finoza .legal-content-card h2 {
-  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-size: clamp(1.35rem, 2.3vw, 1.8rem);
   color: var(--finoza-forest);
-  margin: 38px 0 14px;
+  margin: 44px 0 14px;
   letter-spacing: -0.025em;
   line-height: 1.3;
-  padding-top: 24px;
+  padding-top: 26px;
   border-top: 1px solid rgba(7, 60, 52, 0.08);
   scroll-margin-top: 110px;
 }
+.finoza .legal-single-card h2:first-of-type,
 .finoza .legal-content-body h2:first-of-type,
 .finoza .legal-content-card h2:first-of-type {
   margin-top: 0;
   padding-top: 0;
   border-top: none;
 }
+.finoza .legal-single-card h3,
 .finoza .legal-content-body h3,
 .finoza .legal-content-card h3 {
-  font-size: 1.08rem;
+  font-size: 1.1rem;
   color: var(--finoza-forest);
-  margin: 22px 0 10px;
+  margin: 24px 0 10px;
   line-height: 1.35;
   font-weight: 750;
   scroll-margin-top: 110px;
 }
+.finoza .legal-single-card p,
 .finoza .legal-content-body p,
 .finoza .legal-content-card p {
   font-size: 0.98rem;
-  line-height: 1.78;
+  line-height: 1.8;
   color: #2e4039;
   margin: 0 0 16px;
+  max-width: 80ch;
 }
+.finoza .legal-single-card ul,
 .finoza .legal-content-body ul,
 .finoza .legal-content-card ul,
+.finoza .legal-single-card ol,
 .finoza .legal-content-body ol,
 .finoza .legal-content-card ol {
   margin: 0 0 22px 20px;
   padding: 0;
   color: #2e4039;
-  line-height: 1.72;
+  line-height: 1.74;
+  max-width: 80ch;
 }
+.finoza .legal-single-card li,
 .finoza .legal-content-body li,
 .finoza .legal-content-card li {
   margin-bottom: 9px;
   padding-left: 4px;
 }
+.finoza .legal-single-card code,
 .finoza .legal-content-body code,
 .finoza .legal-content-card code {
   background: #f4f6f5;
@@ -2366,20 +2274,6 @@ body.finoza {
   font-size: 0.88em;
   color: var(--finoza-forest);
   border: 1px solid rgba(7, 60, 52, 0.08);
-}
-.finoza .legal-callout {
-  background: var(--finoza-mint);
-  border-left: 4px solid var(--finoza-green);
-  border-radius: 0 12px 12px 0;
-  padding: 18px 22px;
-  margin: 24px 0;
-}
-.finoza .legal-callout p {
-  margin: 0;
-  font-size: 0.93rem;
-  color: var(--finoza-forest);
-  font-weight: 500;
-  line-height: 1.65;
 }
 
 /* Footer Legal Links */
@@ -2400,75 +2294,18 @@ body.finoza {
 }
 
 /* Tablet & Mobile Responsiveness */
-@media (max-width: 1024px) {
-  .finoza .legal-document-shell,
-  .finoza .legal-grid {
+@media (max-width: 768px) {
+  .finoza .legal-toc-grid {
     grid-template-columns: 1fr;
+  }
+  .finoza .legal-single-card,
+  .finoza .legal-document-shell,
+  .finoza .legal-content-card {
     border-radius: 18px;
-  }
-  .finoza .legal-sidebar-rail,
-  .finoza aside.legal-nav-card {
-    border-right: none;
-    border-bottom: 1px solid var(--finoza-border);
-    border-top-left-radius: 17px;
-    border-top-right-radius: 17px;
-    border-bottom-left-radius: 0;
-  }
-  .finoza .legal-sidebar-sticky {
-    position: static;
-    max-height: none;
-    padding: 24px 20px;
-    gap: 14px;
-  }
-  .finoza .legal-nav-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 6px;
-  }
-  .finoza .legal-rail-footer {
-    display: none;
-  }
-  .finoza .legal-content-body,
-  .finoza .legal-content-card {
-    border-radius: 0 0 17px 17px;
-    padding: 32px 20px 50px;
-  }
-}
-
-@media (max-width: 640px) {
-  .finoza .legal-nav-list {
-    grid-template-columns: 1fr;
+    padding: 30px 20px 50px;
   }
   .finoza .legal-section {
-    padding: 28px 0 60px;
-  }
-}
-
-/* Print Optimization for Corporate Legal Records */
-@media print {
-  .site-header,
-  .finoza-footer,
-  .subpage-hero,
-  .legal-sidebar-rail,
-  .legal-print-btn,
-  .legal-rail-footer,
-  .floating-contact,
-  .chat-widget {
-    display: none !important;
-  }
-  .finoza .legal-section {
-    padding: 0 !important;
-    background: #ffffff !important;
-  }
-  .finoza .legal-document-shell,
-  .finoza .legal-grid {
-    border: none !important;
-    box-shadow: none !important;
-    grid-template-columns: 1fr !important;
-  }
-  .finoza .legal-content-body,
-  .finoza .legal-content-card {
-    padding: 0 !important;
+    padding: 30px 0 60px;
   }
 }
 

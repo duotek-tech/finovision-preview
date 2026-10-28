@@ -519,83 +519,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -------------------------------------------------------------
-  // Legal Document Directory ScrollSpy & Active Indicator
+  // Legal Document Table of Contents Smooth Jump
   // -------------------------------------------------------------
-  const legalNavLinks = document.querySelectorAll('.legal-nav-link, .legal-nav-list a');
-  if (legalNavLinks.length > 0) {
-    const sectionTargets = [];
-
-    legalNavLinks.forEach((link) => {
+  const legalTocLinks = document.querySelectorAll('.legal-toc-grid a');
+  legalTocLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
       const hash = link.getAttribute('href');
       if (hash && hash.startsWith('#')) {
         const target = document.getElementById(hash.slice(1));
         if (target) {
-          sectionTargets.push({ link, target });
+          e.preventDefault();
+          const offsetTop = target.getBoundingClientRect().top + window.scrollY - 110;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+          if (history.pushState) {
+            history.pushState(null, '', hash);
+          }
         }
       }
     });
-
-    if (sectionTargets.length > 0) {
-      let scrollTimeout = null;
-
-      const updateActiveLegalSection = () => {
-        const scrollPosition = window.scrollY + 140;
-        let currentActive = sectionTargets[0];
-
-        for (let i = 0; i < sectionTargets.length; i++) {
-          const item = sectionTargets[i];
-          const top = item.target.getBoundingClientRect().top + window.scrollY;
-          if (scrollPosition >= top - 20) {
-            currentActive = item;
-          } else {
-            break;
-          }
-        }
-
-        sectionTargets.forEach((item) => {
-          if (item === currentActive) {
-            item.link.classList.add('active');
-          } else {
-            item.link.classList.remove('active');
-          }
-        });
-      };
-
-      window.addEventListener('scroll', () => {
-        if (!scrollTimeout) {
-          scrollTimeout = requestAnimationFrame(() => {
-            updateActiveLegalSection();
-            scrollTimeout = null;
-          });
-        }
-      }, { passive: true });
-
-      // Run once on load
-      updateActiveLegalSection();
-
-      // Smooth scroll on directory click with immediate active state
-      legalNavLinks.forEach((link) => {
-        link.addEventListener('click', (e) => {
-          const hash = link.getAttribute('href');
-          if (hash && hash.startsWith('#')) {
-            const target = document.getElementById(hash.slice(1));
-            if (target) {
-              e.preventDefault();
-              legalNavLinks.forEach((l) => l.classList.remove('active'));
-              link.classList.add('active');
-              const offsetTop = target.getBoundingClientRect().top + window.scrollY - 110;
-              window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-              });
-              if (history.pushState) {
-                history.pushState(null, '', hash);
-              }
-            }
-          }
-        });
-      });
-    }
-  }
+  });
 });
+
 
