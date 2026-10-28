@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.style.opacity = '0.75';
-        submitBtn.innerHTML = '<span>Submitting Consultation Request...</span>';
+        submitBtn.innerHTML = '<span>Sending Message...</span>';
       }
 
       if (statusElement) {
