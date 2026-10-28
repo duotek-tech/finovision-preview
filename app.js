@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.ok) {
           if (statusElement) {
-            statusElement.innerHTML = '✓ Consultation request received. A qualified Finovision advisor will contact you within 1 business day.<br><span style="font-size: 0.85em; opacity: 0.9;">Urgent assistance? <a href="https://wa.me/971503010675?text=Hello%20Finovision,%20I%20just%20submitted%20a%20consultation%20request%20on%20your%20website" target="_blank" rel="noopener noreferrer" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">Direct line WhatsApp: +971 50 301 0675 →</a></span>';
+            statusElement.innerHTML = 'Consultation request received. A qualified Finovision advisor will contact you within 1 business day.<br><span style="font-size: 0.85em; opacity: 0.9;">Urgent assistance? <a href="https://wa.me/971503010675?text=Hello%20Finovision,%20I%20just%20submitted%20a%20consultation%20request%20on%20your%20website" target="_blank" rel="noopener noreferrer" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">Direct line WhatsApp: +971 50 301 0675 &rarr;</a></span>';
             statusElement.style.color = '#10b981';
             statusElement.style.fontWeight = '600';
           }
@@ -503,4 +503,85 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial calculation run
     updateCalculator();
   }
+
+  // -------------------------------------------------------------
+  // Legal Document Directory ScrollSpy & Active Indicator
+  // -------------------------------------------------------------
+  const legalNavLinks = document.querySelectorAll('.legal-nav-link, .legal-nav-list a');
+  if (legalNavLinks.length > 0) {
+    const sectionTargets = [];
+
+    legalNavLinks.forEach((link) => {
+      const hash = link.getAttribute('href');
+      if (hash && hash.startsWith('#')) {
+        const target = document.getElementById(hash.slice(1));
+        if (target) {
+          sectionTargets.push({ link, target });
+        }
+      }
+    });
+
+    if (sectionTargets.length > 0) {
+      let scrollTimeout = null;
+
+      const updateActiveLegalSection = () => {
+        const scrollPosition = window.scrollY + 140;
+        let currentActive = sectionTargets[0];
+
+        for (let i = 0; i < sectionTargets.length; i++) {
+          const item = sectionTargets[i];
+          const top = item.target.getBoundingClientRect().top + window.scrollY;
+          if (scrollPosition >= top - 20) {
+            currentActive = item;
+          } else {
+            break;
+          }
+        }
+
+        sectionTargets.forEach((item) => {
+          if (item === currentActive) {
+            item.link.classList.add('active');
+          } else {
+            item.link.classList.remove('active');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', () => {
+        if (!scrollTimeout) {
+          scrollTimeout = requestAnimationFrame(() => {
+            updateActiveLegalSection();
+            scrollTimeout = null;
+          });
+        }
+      }, { passive: true });
+
+      // Run once on load
+      updateActiveLegalSection();
+
+      // Smooth scroll on directory click with immediate active state
+      legalNavLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          const hash = link.getAttribute('href');
+          if (hash && hash.startsWith('#')) {
+            const target = document.getElementById(hash.slice(1));
+            if (target) {
+              e.preventDefault();
+              legalNavLinks.forEach((l) => l.classList.remove('active'));
+              link.classList.add('active');
+              const offsetTop = target.getBoundingClientRect().top + window.scrollY - 110;
+              window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+              });
+              if (history.pushState) {
+                history.pushState(null, '', hash);
+              }
+            }
+          }
+        });
+      });
+    }
+  }
 });
+
