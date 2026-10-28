@@ -1386,21 +1386,19 @@ body.finoza {
   100% { left: 100%; opacity: 0; }
 }
 
-/* Smooth micro-fade for values when recalculating */
+/* Smooth, stable micro-fade for values when recalculating without text jitter */
 .finoza .calc-results-card .result-amount,
 .finoza .calc-results-card .result-status-badge,
 .finoza .calc-results-card .result-note,
 .finoza .calc-results-card .result-sub-amount {
-  transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), filter 0.18s ease;
-  will-change: opacity, transform;
+  transition: opacity 0.15s ease;
+  will-change: opacity;
 }
 
 .finoza .calc-results-card.is-calculating .result-amount,
 .finoza .calc-results-card.is-calculating .result-status-badge,
 .finoza .calc-results-card.is-calculating .result-sub-amount {
-  opacity: 0.35;
-  transform: translateY(2px) scale(0.99);
-  filter: blur(0.4px);
+  opacity: 0.82;
 }
 
 /* Primary Top Tax Highlight */
@@ -1414,7 +1412,7 @@ body.finoza {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .finoza .result-label {
   font-size: 0.63rem;
@@ -1422,6 +1420,9 @@ body.finoza {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #a6d8c1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .finoza .result-amount {
   display: block;
@@ -1432,15 +1433,18 @@ body.finoza {
   letter-spacing: -0.03em;
   margin: 5px 0 3px;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 .finoza .result-status-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 3px 9px;
   border-radius: 4px;
   font-size: 0.6rem;
   font-weight: 800;
   line-height: 1.25;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 .finoza .result-status-badge.under-threshold {
   background: rgba(0, 200, 83, 0.22);
@@ -1459,6 +1463,10 @@ body.finoza {
   color: #b0d4c8;
   line-height: 1.35;
   display: block;
+  min-height: 1.35em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Secondary 2-Column Sub-Grid (VAT & E-Invoicing) */

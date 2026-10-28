@@ -436,8 +436,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let calcTransitionTimer = null;
 
     const triggerRecalculation = (immediate = false) => {
+      // Immediate calculation ensures values update cleanly with zero lag
+      updateCalculator();
+
       if (immediate || !resultsCard) {
-        updateCalculator();
+        if (resultsCard) resultsCard.classList.remove('is-calculating');
         return;
       }
 
@@ -445,19 +448,23 @@ document.addEventListener('DOMContentLoaded', () => {
       resultsCard.classList.add('is-calculating');
 
       calcTransitionTimer = setTimeout(() => {
-        updateCalculator();
-        setTimeout(() => {
-          resultsCard.classList.remove('is-calculating');
-        }, 30);
-      }, 120);
+        resultsCard.classList.remove('is-calculating');
+        calcTransitionTimer = null;
+      }, 240);
     };
 
     // Event: Jurisdiction buttons
     jurisdictionBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
+        const targetJurisdiction = btn.getAttribute('data-jurisdiction') || 'mainland';
+        // PREVENT GLITCH: Do nothing if clicking already selected jurisdiction
+        if (targetJurisdiction === currentJurisdiction && btn.classList.contains('active')) {
+          return;
+        }
+
         jurisdictionBtns.forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
-        currentJurisdiction = btn.getAttribute('data-jurisdiction') || 'mainland';
+        currentJurisdiction = targetJurisdiction;
         triggerRecalculation(false);
       });
     });
@@ -481,9 +488,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event: Preset Pills
     presetBtns.forEach((pill) => {
       pill.addEventListener('click', () => {
+        const val = parseFloat(pill.getAttribute('data-preset')) || 1500000;
+        if (val === currentRevenue && pill.classList.contains('active')) {
+          return;
+        }
         presetBtns.forEach((p) => p.classList.remove('active'));
         pill.classList.add('active');
-        const val = parseFloat(pill.getAttribute('data-preset')) || 1500000;
         currentRevenue = val;
         if (revenueSlider) revenueSlider.value = String(val);
         triggerRecalculation(false);
@@ -493,9 +503,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event: Profit Margin Pills
     marginBtns.forEach((pill) => {
       pill.addEventListener('click', () => {
+        const val = parseFloat(pill.getAttribute('data-margin')) || 0.20;
+        if (Math.abs(val - currentMargin) < 0.001 && pill.classList.contains('active')) {
+          return;
+        }
         marginBtns.forEach((p) => p.classList.remove('active'));
         pill.classList.add('active');
-        currentMargin = parseFloat(pill.getAttribute('data-margin')) || 0.20;
+        currentMargin = val;
         triggerRecalculation(false);
       });
     });
