@@ -429,7 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 4. E-Invoicing Phase 2 Status
       if (einvStatusDisplay) einvStatusDisplay.textContent = 'Phase 2 Preparation';
-      if (einvNoteDisplay) einvNoteDisplay.textContent = 'PEPPOL / XML format readiness required for B2B.';
+      if (einvNoteDisplay) einvNoteDisplay.textContent = 'PEPPOL / XML format readiness for B2B.';
     };
 
     const resultsCard = calcWrap.querySelector('.calc-results-card');

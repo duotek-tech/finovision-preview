@@ -1463,6 +1463,8 @@ body.finoza {
   color: #b0d4c8;
   line-height: 1.35;
   display: block;
+}
+.finoza .result-top-tax .result-note {
   min-height: 1.35em;
   white-space: nowrap;
   overflow: hidden;
@@ -1490,6 +1492,15 @@ body.finoza {
   color: #ffffff;
   line-height: 1.25;
   margin: 4px 0 2px;
+}
+.finoza .results-sub-grid .result-note {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  min-height: 2.7em;
+  line-height: 1.35;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 /* Footer Action */
