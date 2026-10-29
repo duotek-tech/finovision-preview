@@ -127,3 +127,12 @@ Visit in your browser:
 - **Vercel**: Push to GitHub or run `vercel`. `vercel.json` automatically manages clean URLs and domain 301 redirects.
 - **Netlify**: Connect repository. `netlify.toml` and `_redirects` automatically enforce pretty URLs and domain canonicalization.
 - **cPanel / Apache**: Upload all files to `public_html/`. `.htaccess` automatically manages HTTPS, domain redirects, and clean URLs.
+
+## Repository Remotes
+
+This project is mirrored to both the personal and company GitHub repositories. After committing changes, push the `main` branch to both remotes:
+
+```bash
+git push origin main
+git push company main
+```
