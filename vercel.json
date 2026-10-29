@@ -8,21 +8,10 @@
       "has": [
         {
           "type": "host",
-          "value": "finovision.net"
-        }
-      ],
-      "destination": "https://finovision.ae/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
           "value": "www.finovision.net"
         }
       ],
-      "destination": "https://finovision.ae/:path*",
+      "destination": "https://finovision.net/:path*",
       "permanent": true
     },
     {
@@ -30,10 +19,21 @@
       "has": [
         {
           "type": "host",
-          "value": "www.finovision.ae"
+          "value": "finovisionuae.com"
         }
       ],
-      "destination": "https://finovision.ae/:path*",
+      "destination": "https://finovision.net/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.finovisionuae.com"
+        }
+      ],
+      "destination": "https://finovision.net/:path*",
       "permanent": true
     }
   ],

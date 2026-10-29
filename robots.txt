@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://finovision.ae/sitemap.xml
-Host: https://finovision.ae
+Sitemap: https://finovision.net/sitemap.xml
+Host: https://finovision.net

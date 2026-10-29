@@ -6,15 +6,15 @@ This document describes the multi-page structure, DOM landmarks, shared CSS modu
 
 ## 1. Clean URLs & Page Hierarchy
 
-All public routes hide `.html` extensions. The application uses canonical `https://finovision.ae` as the primary domain:
+All public routes hide `.html` extensions. The application uses canonical `https://finovision.net` as the primary domain:
 
 | Clean Public URL | Internal Source File | Directory Fallback | Primary Purpose & Content |
 | :--- | :--- | :--- | :--- |
-| `https://finovision.ae/` | `index.html` | `/index.html` | Home: Advisory Compass interactive diagram, practice summary, core metrics, CTA |
-| `https://finovision.ae/about` | `about.html` | `about/index.html` | About Us: Company profile, Vision, Mission, Core Values, Leadership qualifications |
-| `https://finovision.ae/services` | `services.html` | `services/index.html` | Services: Complete consultancy catalog and value-added software solutions |
-| `https://finovision.ae/vat-services` | `vat-services.html` | `vat-services/index.html` | VAT Services: Specialized flyer breakdown: 6 compliance pillars, PwC/ATT certification |
-| `https://finovision.ae/contact` | `contact.html` | `contact/index.html` | Contact Us: Direct hotline, email, office location, business hours, inquiry form, FAQ |
+| `https://finovision.net/` | `index.html` | `/index.html` | Home: Advisory Compass interactive diagram, practice summary, core metrics, CTA |
+| `https://finovision.net/about` | `about.html` | `about/index.html` | About Us: Company profile, Vision, Mission, Core Values, Leadership qualifications |
+| `https://finovision.net/services` | `services.html` | `services/index.html` | Services: Complete consultancy catalog and value-added software solutions |
+| `https://finovision.net/vat-services` | `vat-services.html` | `vat-services/index.html` | VAT Services: Specialized flyer breakdown: 6 compliance pillars, PwC/ATT certification |
+| `https://finovision.net/contact` | `contact.html` | `contact/index.html` | Contact Us: Direct hotline, email, office location, business hours, inquiry form, FAQ |
 
 ---
 
@@ -59,9 +59,9 @@ Every page implements the following standardized layout structure:
 
 ## 4. Multi-Platform Clean URL & Domain Routing
 
-- **Vercel (`vercel.json`)**: Enforces `cleanUrls: true` and 301 host-matching redirects from `finovision.net` and `www.*` to `https://finovision.ae`.
-- **Netlify & Cloudflare (`_redirects` & `netlify.toml`)**: Enforces `pretty_urls = true` and 301 wildcard redirects from `finovision.net/*` to `https://finovision.ae/:splat`.
-- **Apache / cPanel / LiteSpeed (`.htaccess`)**: Strips `.html` requests via `mod_rewrite` and redirects `finovision.net` traffic to `https://finovision.ae`.
+- **Vercel (`vercel.json`)**: Enforces `cleanUrls: true`, serves `finovision.net` directly, and redirects secondary domains and `www.*` to `https://finovision.net`.
+- **Netlify & Cloudflare (`_redirects` & `netlify.toml`)**: Enforces `pretty_urls = true`, serves `finovision.net` directly, and redirects secondary domains to `https://finovision.net/:splat`.
+- **Apache / cPanel / LiteSpeed (`.htaccess`)**: Strips `.html` requests via `mod_rewrite` and redirects `finovision.net` traffic to `https://finovision.net`.
 - **Static Server Fallback**: Subdirectories (`about/index.html`, `services/index.html`, etc.) ensure clean directory loading on any static host or local server.
 
 ---
@@ -73,4 +73,4 @@ Every page implements the following standardized layout structure:
 - [x] **Keyboard Accessibility**: Visible focus states (`:focus-visible`), skip-link, and accessible keyboard navigation in mobile menu.
 - [x] **Form Labels**: Every input field includes paired `.sr-only` accessibility labels and modern `autocomplete` attributes.
 - [x] **Image Loading**: All images specify `loading="lazy"`, `decoding="async"`, and explicit dimensions to avoid CLS.
-- [x] **SEO & GEO Standards**: Canonical tags to `https://finovision.ae`, Sharjah Media City GEO coordinates, Schema.org JSON-LD structured data.
+- [x] **SEO & GEO Standards**: Canonical tags to `https://finovision.net`, Sharjah Media City GEO coordinates, Schema.org JSON-LD structured data.

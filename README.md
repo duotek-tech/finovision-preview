@@ -2,7 +2,7 @@
 
 [![Status](https://img.shields.io/badge/Status-Multi--Page%20Production%20Ready-10b981.svg)]()
 [![Standards](https://img.shields.io/badge/Standards-HTML5%20%7C%20WCAG%202.1%20AA-blue.svg)]()
-[![SEO](https://img.shields.io/badge/Domain-finovision.ae%20(Primary)-073c34.svg)]()
+[![SEO](https://img.shields.io/badge/Domain-finovision.net%20(Primary)-073c34.svg)]()
 [![CleanURLs](https://img.shields.io/badge/URLs-Clean%20(No%20.html)-10b981.svg)]()
 
 Multi-page corporate website for **Finovision Business Solutions LLC**, an accredited business advisory, accounting, statutory audit, UAE VAT compliance, and cloud ERP systems firm based in Sharjah Media City (Shams), UAE.
@@ -11,11 +11,11 @@ Multi-page corporate website for **Finovision Business Solutions LLC**, an accre
 
 ## Domains & Clean URL Architecture
 
-- **Primary Canonical Domain**: [`https://finovision.ae`](https://finovision.ae)
-- **Secondary Domain**: `finovision.net` (Permanently redirected via HTTP 301 to `https://finovision.ae`)
+- **Primary Canonical Domain**: [`https://finovision.net`](https://finovision.net)
+- **Secondary Domain**: `finovisionuae.com` (Permanently redirected via HTTP 301 to `https://finovision.net`)
 - **Clean URLs**: All public routes hide `.html` extensions (`/`, `/about`, `/services`, `/vat-services`, `/contact`).
 - **Pre-Configured Hosting Rules**:
-  - `vercel.json`: `"cleanUrls": true` + 301 redirects for `finovision.net` & `www.*`.
+  - `vercel.json`: `"cleanUrls": true` + 301 redirects for secondary domains and `www.*`.
   - `_redirects` & `netlify.toml`: 301 rules for Netlify and Cloudflare Pages.
   - `.htaccess`: Apache/cPanel mod_rewrite rules for HTTPS, domain canonicalization, and `.html` stripping.
   - `sitemap.xml` & `robots.txt`: Search engine index files referencing canonical clean URLs.
@@ -64,7 +64,7 @@ finovision/
 │   ├── finoza_review_img.jpg# Financial audit & spreadsheets review photo
 │   └── finoza_team_img.jpg  # Advisory team collaborative meeting photo
 ├── sitemap.xml              # XML Sitemap with clean canonical URLs
-├── robots.txt               # Crawler directives pointing to finovision.ae
+├── robots.txt               # Crawler directives pointing to finovision.net
 ├── vercel.json              # Vercel deployment configuration
 ├── _redirects               # Netlify/Cloudflare redirects
 ├── netlify.toml             # Netlify pretty_urls configuration
@@ -90,7 +90,7 @@ finovision/
    - Zero emojis across all HTML, CSS, and JS files.
 
 2. **Detailed SEO & GEO Targeting**:
-   - Canonical link tags to `https://finovision.ae/...` on every page.
+   - Canonical link tags to `https://finovision.net/...` on every page.
    - Geolocation meta tags targeting Sharjah Media City (`AE-SH`, coordinates `25.3223;55.5136`).
    - Schema.org JSON-LD microdata: `AccountingService`, `LocalBusiness`, `BreadcrumbList`, and `FAQPage`.
    - Open Graph & Twitter Card social previews.

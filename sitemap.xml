@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://finovision.ae/</loc>
+    <loc>https://finovision.net/</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://finovision.ae/about</loc>
+    <loc>https://finovision.net/about</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://finovision.ae/services</loc>
+    <loc>https://finovision.net/services</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://finovision.ae/vat-services</loc>
+    <loc>https://finovision.net/vat-services</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://finovision.ae/contact</loc>
+    <loc>https://finovision.net/contact</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://finovision.ae/privacy-policy</loc>
+    <loc>https://finovision.net/privacy-policy</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://finovision.ae/terms-and-conditions</loc>
+    <loc>https://finovision.net/terms-and-conditions</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>

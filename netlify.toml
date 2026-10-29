@@ -8,19 +8,19 @@
   pretty_urls = true
 
 [[redirects]]
-  from = "https://finovision.net/*"
-  to = "https://finovision.ae/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "https://www.finovision.net/*"
-  to = "https://finovision.ae/:splat"
+  to = "https://finovision.net/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.finovision.ae/*"
-  to = "https://finovision.ae/:splat"
+from = "https://finovisionuae.com/*"
+to = "https://finovision.net/:splat"
+status = 301
+force = true
+
+[[redirects]]
+  from = "https://www.finovisionuae.com/*"
+  to = "https://finovision.net/:splat"
   status = 301
   force = true

@@ -7,13 +7,13 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # Redirect finovision.net and www to primary domain https://finovision.ae
-  RewriteCond %{HTTP_HOST} ^(www\.)?finovision\.net$ [NC]
-  RewriteRule ^(.*)$ https://finovision.ae/$1 [R=301,L]
+  # Redirect www.finovision.net to primary domain https://finovision.net
+  RewriteCond %{HTTP_HOST} ^www\.finovision\.net$ [NC]
+  RewriteRule ^(.*)$ https://finovision.net/$1 [R=301,L]
 
-  # Redirect www.finovision.ae to https://finovision.ae
-  RewriteCond %{HTTP_HOST} ^www\.finovision\.ae$ [NC]
-  RewriteRule ^(.*)$ https://finovision.ae/$1 [R=301,L]
+  # Redirect finovisionuae.com hosts to https://finovision.net
+  RewriteCond %{HTTP_HOST} ^(www\.)?finovisionuae\.com$ [NC]
+  RewriteRule ^(.*)$ https://finovision.net/$1 [R=301,L]
 
   # Redirect any request with .html to clean URL
   RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
