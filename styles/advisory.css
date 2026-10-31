@@ -86,25 +86,28 @@ body.finoza {
   }
 }
 
-/* Finoza Green Pill Button */
+/* Institutional Prestige Button */
 .finoza .button-finoza {
-  background: var(--finoza-green);
-  color: white;
+  background: #08241e;
+  color: #ffffff;
   padding: 12px 24px;
-  border-radius: 999px;
+  border-radius: 8px;
   font-weight: 750;
   font-size: .86rem;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 0;
+  border: 1px solid rgba(8, 36, 30, 0.2);
   cursor: pointer;
-  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow: 0 2px 6px rgba(8, 36, 30, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .finoza .button-finoza:hover {
-  background: var(--finoza-green-bright);
+  background: #008755;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 176, 116, 0.3);
+  box-shadow: 0 8px 24px rgba(8, 36, 30, 0.22);
+  border-color: #008755;
 }
 .finoza .button-finoza span {
   font-size: 1rem;
@@ -148,7 +151,7 @@ body.finoza {
   text-wrap: balance;
 }
 .finoza .hero-left h1 span {
-  color: var(--finoza-green);
+  color: var(--finoza-forest);
 }
 .finoza .hero-desc {
   font-size: 1.05rem;
@@ -674,8 +677,8 @@ body.finoza {
 .finoza .finoza-form-clean textarea {
   width: 100%;
   height: 52px;
-  padding: 0 22px;
-  border-radius: 999px;
+  padding: 0 20px;
+  border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
@@ -977,11 +980,13 @@ body.finoza {
   align-items: center;
   gap: 10px;
   margin-bottom: 24px;
-  color: var(--finoza-forest);
-  font-size: .72rem;
-  letter-spacing: .14em;
+  color: var(--finoza-muted);
+  font-size: .74rem;
+  font-weight: 750;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
-.finoza .welcome-pill::before { content: ""; width: 38px; height: 2px; background: var(--finoza-green); }
+.finoza .welcome-pill::before { content: ""; width: 28px; height: 2px; background: #08241e; }
 .finoza .hero-left h1 {
   max-width: 720px;
   margin-bottom: 24px;
@@ -991,7 +996,7 @@ body.finoza {
   font-weight: 720;
   overflow-wrap: break-word;
 }
-.finoza .hero-left h1 span { color: var(--finoza-green); }
+.finoza .hero-left h1 span { color: var(--finoza-forest); }
 .finoza .hero-audience-line {
   font-size: 1.15rem;
   font-weight: 700;
@@ -1098,7 +1103,7 @@ body.finoza {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(7, 60, 52, 0.14);
-  border-radius: 99px;
+  border-radius: 6px;
   box-shadow: 0 8px 24px rgba(7, 60, 52, 0.08);
   font-size: 0.65rem;
   font-weight: 800;
@@ -1531,16 +1536,16 @@ body.finoza {
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  background: var(--finoza-green);
+  background: #08241e;
   color: #ffffff;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 0.74rem;
   font-weight: 800;
   white-space: nowrap;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 .finoza .calc-cta-btn:hover {
-  background: var(--finoza-forest);
+  background: #008755;
   transform: translateY(-1px);
 }
 .finoza .calc-cta-btn .cta-arrow {
