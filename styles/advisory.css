@@ -1,14 +1,14 @@
 :root {
   --finoza-forest: #073c34;
   --finoza-dark: #052a24;
-  --finoza-green: #00b074;
+  --finoza-green: #00a86b;
   --finoza-green-bright: #00c853;
-  --finoza-mint: #f3faf6;
-  --finoza-cream: #fafdfb;
-  --finoza-border: #d7ede4;
-  --finoza-text: #1a2e2b;
-  --finoza-muted: #526e67;
-  --mobile-menu-bg: #f3faf6;
+  --finoza-mint: #f6f9f8;
+  --finoza-cream: #ffffff;
+  --finoza-border: #e2ece7;
+  --finoza-text: #11221f;
+  --finoza-muted: #56726b;
+  --mobile-menu-bg: #ffffff;
   --mobile-menu-color: #073c34;
 }
 
@@ -34,11 +34,11 @@ body.finoza {
               backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .finoza .site-header.scrolled {
-  background: rgba(250, 253, 251, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(7, 60, 52, 0.08);
-  box-shadow: 0 10px 30px rgba(7, 60, 52, 0.07);
+  box-shadow: 0 10px 30px rgba(7, 60, 52, 0.05);
 }
 .finoza .site-header.scrolled .nav {
   height: 72px;
@@ -962,11 +962,11 @@ body.finoza {
   min-height: auto;
   padding-top: clamp(120px, 12vw, 150px);
   padding-bottom: clamp(60px, 8vw, 96px);
-  background-color: var(--finoza-cream);
+  background-color: #ffffff;
   background-image:
-    radial-gradient(circle at 86% 22%, rgba(210,239,104,.22), transparent 36%),
-    radial-gradient(circle at 14% 65%, rgba(0,176,116,.06), transparent 42%),
-    linear-gradient(180deg, transparent 70%, var(--finoza-cream) 100%);
+    radial-gradient(circle at 86% 18%, rgba(0, 168, 107, 0.08), transparent 42%),
+    radial-gradient(circle at 14% 65%, rgba(7, 60, 52, 0.04), transparent 45%),
+    linear-gradient(180deg, #ffffff 0%, #f7faf9 100%);
 }
 .finoza .hero-layout {
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
@@ -1139,7 +1139,7 @@ body.finoza {
 /* Header */
 .finoza .calc-header {
   padding: 22px 24px 16px;
-  background: #fbfdfc;
+  background: #f8fafc;
   border-bottom: 1px solid rgba(7, 60, 52, 0.08);
 }
 .finoza .calc-header-top {
@@ -1210,7 +1210,7 @@ body.finoza {
   justify-content: center;
   min-height: 56px;
   padding: 10px 14px;
-  background: #f7faf8;
+  background: #f8fafc;
   border: 1.5px solid rgba(7, 60, 52, 0.1);
   border-radius: 10px;
   cursor: pointer;
@@ -1301,7 +1301,7 @@ body.finoza {
 .finoza .preset-pill {
   flex: 1;
   padding: 4px 6px;
-  background: #f2f7f4;
+  background: #f8fafc;
   border: 1px solid rgba(7, 60, 52, 0.08);
   border-radius: 6px;
   font-family: inherit;
@@ -1330,7 +1330,7 @@ body.finoza {
 }
 .finoza .margin-pill {
   padding: 6px 8px;
-  background: #f7faf8;
+  background: #f8fafc;
   border: 1px solid rgba(7, 60, 52, 0.1);
   border-radius: 6px;
   font-family: inherit;
@@ -1510,7 +1510,7 @@ body.finoza {
   align-items: center;
   gap: 14px;
   padding: 13px 24px;
-  background: #f4faf6;
+  background: #f8fafc;
   border-top: 1px solid rgba(7, 60, 52, 0.08);
 }
 .finoza .calc-footer-info {
@@ -1561,7 +1561,7 @@ body.finoza {
 }
 
 /* A service index replaces the familiar centered card deck. */
-.finoza .finoza-services { background: #f7faf7; }
+.finoza .finoza-services { background: #f8fafb; }
 .finoza .services-head { max-width: none; margin-bottom: 50px; text-align: left; display: grid; grid-template-columns: 1fr .7fr; gap: 50px; align-items: end; }
 .finoza .services-head .finoza-tag { grid-column: 1 / -1; margin-bottom: -32px; }
 .finoza .services-head p { margin: 0; max-width: 430px; color: var(--finoza-muted); font-size: 1.03rem; }
@@ -2061,7 +2061,7 @@ body.finoza {
 /* Legal Policy & Terms Content Layout: Expanded Centered Document Architecture */
 .finoza .legal-section {
   padding: 48px 0 100px;
-  background: #fbfaf7;
+  background: #f8fafb;
   position: relative;
 }
 
@@ -2111,7 +2111,7 @@ body.finoza {
   font-size: 0.76rem;
   font-weight: 650;
   color: var(--finoza-muted);
-  background: #fafaf8;
+  background: #ffffff;
   border: 1px solid var(--finoza-border);
   padding: 5px 12px;
   border-radius: 999px;
@@ -2138,7 +2138,7 @@ body.finoza {
   margin: 24px 0 36px;
 }
 .finoza .legal-toc-accordion {
-  background: #faf9f6;
+  background: #ffffff;
   border: 1px solid var(--finoza-border);
   border-radius: 14px;
   overflow: hidden;
@@ -2279,7 +2279,7 @@ body.finoza {
 .finoza .legal-single-card code,
 .finoza .legal-content-body code,
 .finoza .legal-content-card code {
-  background: #f4f6f5;
+  background: #f1f5f9;
   padding: 2px 7px;
   border-radius: 6px;
   font-size: 0.88em;
