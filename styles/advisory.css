@@ -1,57 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
 :root {
+  --font-display: 'Outfit', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
   --finoza-forest: #073c34;
   --finoza-dark: #052a24;
   --finoza-green: #00b074;
   --finoza-green-bright: #00c853;
-  --finoza-mint: #f3faf6;
-  --finoza-cream: #fafdfb;
-  --finoza-border: #d7ede4;
-  --finoza-text: #1a2e2b;
-  --finoza-muted: #526e67;
-  --mobile-menu-bg: #f3faf6;
+  --finoza-mint: #f4f8f6;
+  --finoza-cream: #fafcfb;
+  --finoza-border: #e0eee7;
+  --finoza-text: #162925;
+  --finoza-muted: #536f68;
+  --mobile-menu-bg: #f4f8f6;
   --mobile-menu-color: #073c34;
 }
 
 body.finoza {
   background: var(--finoza-cream);
   color: var(--finoza-text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Header & Floating Scrolled Nav */
+h1, h2, h3, h4, h5, h6,
+.hero-left h1,
+.brand-text,
+.calc-header h3,
+.result-amount,
+.button-finoza,
+.welcome-pill,
+.calc-cta-btn,
+.nav-links a {
+  font-family: var(--font-display);
+}
+
+/* Floating Island Capsule Header (Starplus / Dynamic Island Archetype) */
 .finoza .site-header {
   position: fixed;
-  top: 0;
+  top: 18px;
   left: 0;
   width: 100%;
   z-index: 1000;
-  color: var(--finoza-forest);
-  background: transparent;
-  transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  transition: top 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.finoza .site-header .nav {
+  pointer-events: auto;
+  max-width: 1140px;
+  margin: 0 auto;
+  height: 64px;
+  padding: 0 12px 0 24px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(7, 60, 52, 0.09);
+  border-radius: 9999px;
+  box-shadow:
+    0 12px 36px -4px rgba(7, 60, 52, 0.08),
+    0 4px 12px rgba(7, 60, 52, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .finoza .site-header.scrolled {
-  background: rgba(250, 253, 251, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(7, 60, 52, 0.08);
-  box-shadow: 0 10px 30px rgba(7, 60, 52, 0.07);
+  top: 10px;
 }
 .finoza .site-header.scrolled .nav {
-  height: 72px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow:
+    0 16px 44px -4px rgba(7, 60, 52, 0.12),
+    0 4px 16px rgba(7, 60, 52, 0.04);
+  border-color: rgba(7, 60, 52, 0.14);
 }
 @media (max-width: 900px) {
-  .finoza .site-header.scrolled .nav {
-    height: 64px;
+  .finoza .site-header {
+    top: 10px;
+    padding: 0 12px;
+  }
+  .finoza .site-header .nav {
+    height: 60px;
+    padding: 0 10px 0 18px;
   }
 }
 .finoza .brand-mark { color: var(--finoza-green); }
 .finoza .nav-links a:not(.button-finoza) {
   color: var(--finoza-forest);
-  font-weight: 600;
+  font-weight: 650;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
 }
 .finoza .header-contact-pill {
   display: flex;
@@ -60,8 +102,17 @@ body.finoza {
 }
 .finoza .phone-num {
   font-size: .84rem;
-  font-weight: 750;
+  font-weight: 700;
   color: var(--finoza-forest);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: rgba(7, 60, 52, 0.04);
+  border: 1px solid rgba(7, 60, 52, 0.09);
+  transition: all 0.2s ease;
+}
+.finoza .phone-num:hover {
+  background: rgba(7, 60, 52, 0.08);
+  border-color: rgba(7, 60, 52, 0.18);
 }
 
 @media (max-width: 900px) {
@@ -76,7 +127,7 @@ body.finoza {
   .finoza .header-contact-pill .phone-num {
     text-align: center;
     font-size: 1.05rem;
-    padding: 6px 0;
+    padding: 10px 0;
   }
   .finoza .header-contact-pill .button-finoza {
     justify-content: center;
@@ -86,29 +137,33 @@ body.finoza {
   }
 }
 
-/* Finoza Green Pill Button */
+/* Deep Forest-Charcoal Capsule Button (Matching Floating Island Curve) */
 .finoza .button-finoza {
-  background: var(--finoza-green);
-  color: white;
+  font-family: var(--font-display);
+  background: #08241e;
+  color: #ffffff;
   padding: 12px 24px;
-  border-radius: 999px;
+  border-radius: 9999px;
   font-weight: 750;
   font-size: .86rem;
+  letter-spacing: -0.01em;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 0;
+  border: 1px solid rgba(8, 36, 30, 0.2);
   cursor: pointer;
-  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow: 0 4px 14px rgba(8, 36, 30, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform .2s cubic-bezier(0.16, 1, 0.3, 1), background .2s ease, box-shadow .2s ease;
 }
 .finoza .button-finoza:hover {
-  background: var(--finoza-green-bright);
+  background: #0f3d32;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 176, 116, 0.3);
+  box-shadow: 0 8px 24px rgba(8, 36, 30, 0.25);
 }
 .finoza .button-finoza span {
   font-size: 1rem;
-  transition: transform .2s;
+  transition: transform .2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .finoza .button-finoza:hover span {
   transform: translateX(3px);
@@ -694,13 +749,29 @@ body.finoza {
 .finoza .finoza-form-clean input:focus,
 .finoza .finoza-form-clean select:focus,
 .finoza .finoza-form-clean textarea:focus {
-  background: #ffffff;
-  color: var(--finoza-forest);
-  border-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(0, 176, 116, 0.35);
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border-color: var(--finoza-green);
+  box-shadow: 0 0 0 3px rgba(0, 176, 116, 0.3), 0 8px 24px rgba(0, 0, 0, 0.2);
 }
-.finoza .finoza-form-clean input:focus::placeholder {
-  color: rgba(7, 60, 52, 0.55);
+.finoza .finoza-form-clean input:focus::placeholder,
+.finoza .finoza-form-clean select:focus::placeholder,
+.finoza .finoza-form-clean textarea:focus::placeholder {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Seamless Dark Theme Browser Autofill Override */
+.finoza .finoza-form-clean input:-webkit-autofill,
+.finoza .finoza-form-clean input:-webkit-autofill:hover,
+.finoza .finoza-form-clean input:-webkit-autofill:focus,
+.finoza .finoza-form-clean select:-webkit-autofill,
+.finoza .finoza-form-clean textarea:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #08332b inset !important;
+  box-shadow: 0 0 0px 1000px #08332b inset !important;
+  border-color: var(--finoza-green) !important;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: #ffffff !important;
 }
 .finoza .form-row {
   display: grid;
@@ -957,16 +1028,20 @@ body.finoza {
   .finoza .collage-bottom { width: 65%; height: 180px; }
 }
 
-/* CONCEPT C DIFFERENTIATION PASS: ADVISORY COMPASS + PRACTICE INDEX */
+/* Full-Bleed Modern Canvas with Ambient Atmospheric Glow */
 .finoza .finoza-hero {
   min-height: auto;
-  padding-top: clamp(120px, 12vw, 150px);
+  padding-top: clamp(140px, 14vw, 175px);
   padding-bottom: clamp(60px, 8vw, 96px);
-  background-color: var(--finoza-cream);
+  background-color: #ffffff;
   background-image:
-    radial-gradient(circle at 86% 22%, rgba(210,239,104,.22), transparent 36%),
-    radial-gradient(circle at 14% 65%, rgba(0,176,116,.06), transparent 42%),
-    linear-gradient(180deg, transparent 70%, var(--finoza-cream) 100%);
+    radial-gradient(circle at 82% 20%, rgba(0, 176, 116, 0.12), transparent 45%),
+    radial-gradient(circle at 18% 70%, rgba(7, 60, 52, 0.05), transparent 48%),
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.95), transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, #f4f8f6 100%);
+  border-bottom: 1px solid rgba(7, 60, 52, 0.08);
+  position: relative;
+  overflow: hidden;
 }
 .finoza .hero-layout {
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
@@ -975,42 +1050,73 @@ body.finoza {
 .finoza .welcome-pill {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 24px;
-  color: var(--finoza-forest);
-  font-size: .72rem;
-  letter-spacing: .14em;
+  color: var(--finoza-muted);
+  font-family: var(--font-display);
+  font-size: .74rem;
+  font-weight: 750;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
-.finoza .welcome-pill::before { content: ""; width: 38px; height: 2px; background: var(--finoza-green); }
+.finoza .welcome-pill::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--finoza-forest);
+}
 .finoza .hero-left h1 {
-  max-width: 720px;
-  margin-bottom: 24px;
-  font-size: clamp(2.8rem, 6.5vw, 6.8rem);
-  line-height: .92;
-  letter-spacing: -.065em;
-  font-weight: 720;
+  font-family: var(--font-display);
+  max-width: 740px;
+  margin-bottom: 22px;
+  font-size: clamp(3.2rem, 6.4vw, 5.8rem);
+  line-height: .96;
+  letter-spacing: -.045em;
+  font-weight: 800;
+  color: var(--finoza-forest);
   overflow-wrap: break-word;
 }
-.finoza .hero-left h1 span { color: var(--finoza-green); }
+.finoza .hero-left h1 span {
+  color: var(--finoza-forest);
+}
 .finoza .hero-audience-line {
+  font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--finoza-forest);
-  margin: -10px 0 16px;
+  margin: -6px 0 16px;
   line-height: 1.4;
   letter-spacing: -0.015em;
 }
-.finoza .hero-desc { max-width: 590px; font-size: 1.1rem; }
-.finoza .hero-btn-row { flex-wrap: wrap; }
+.finoza .hero-desc {
+  font-family: var(--font-body);
+  max-width: 590px;
+  font-size: 1.05rem;
+  line-height: 1.68;
+  color: var(--finoza-muted);
+}
+.finoza .hero-btn-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 .finoza .hero-text-link {
+  font-family: var(--font-display);
   display: inline-flex;
   align-items: center;
-  min-height: 50px;
+  min-height: 48px;
   padding: 0 4px;
-  border-bottom: 1px solid var(--finoza-forest);
+  border-bottom: 1.5px solid var(--finoza-forest);
   color: var(--finoza-forest);
   font-size: .86rem;
-  font-weight: 800;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  transition: color 0.2s, border-color 0.2s;
+}
+.finoza .hero-text-link:hover {
+  color: var(--finoza-green);
+  border-color: var(--finoza-green);
 }
 .finoza .hero-location { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 48px; }
 .finoza .hero-location span { position: relative; padding-left: 14px; color: var(--finoza-muted); font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
@@ -1088,7 +1194,7 @@ body.finoza {
 .finoza .calc-float-pill {
   position: absolute;
   top: -14px;
-  right: 12px;
+  right: 14px;
   z-index: 10;
   display: inline-flex;
   align-items: center;
@@ -1097,11 +1203,12 @@ body.finoza {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(7, 60, 52, 0.14);
-  border-radius: 99px;
+  border: 1px solid rgba(0, 176, 116, 0.22);
+  border-radius: 9999px;
   box-shadow: 0 8px 24px rgba(7, 60, 52, 0.08);
-  font-size: 0.65rem;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 750;
   color: var(--finoza-forest);
   letter-spacing: 0.02em;
 }
@@ -1122,16 +1229,18 @@ body.finoza {
   100% { box-shadow: 0 0 0 0 rgba(0, 176, 116, 0); }
 }
 
-/* Main Calculator Card */
+/* Main Calculator Card: Duotek Editorial Card Architecture */
 .finoza .finoza-tax-calc {
   position: relative;
-  background: #ffffff;
-  border: 1px solid rgba(7, 60, 52, 0.12);
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(7, 60, 52, 0.1);
+  border-radius: 24px;
   box-shadow:
-    0 0 0 8px rgba(7, 60, 52, 0.02),
+    0 0 0 1px rgba(255, 255, 255, 0.9),
     0 24px 60px rgba(7, 60, 52, 0.08),
-    0 4px 16px rgba(7, 60, 52, 0.03);
+    0 6px 20px rgba(7, 60, 52, 0.03);
   overflow: hidden;
   transition: box-shadow 0.3s ease;
 }
@@ -1350,15 +1459,15 @@ body.finoza {
   color: #ffffff;
 }
 
-/* Results Box */
+/* Results Box: Multi-tone Deep Emerald Card */
 .finoza .calc-results-card {
   position: relative;
   overflow: hidden;
-  padding: 16px 18px;
-  background: linear-gradient(135deg, #073c34 0%, #0a4f45 100%);
-  border-radius: 14px;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #052a24 0%, #073c34 55%, #0d594b 100%);
+  border-radius: 16px;
   color: #ffffff;
-  box-shadow: 0 10px 24px rgba(7, 60, 52, 0.16);
+  box-shadow: 0 12px 28px rgba(7, 60, 52, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
 }
 
